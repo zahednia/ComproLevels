@@ -1,17 +1,34 @@
+﻿using Application.DataBase;
+using Persistence.Context;
+using Application.Services;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Windows.Forms;
+using Application.Services.CopyUser;
+
 namespace WinFormsApp1
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        public static IServiceProvider? ServiceProvider { get; set; }
+        static void ConfigureServices()
+        {
+            var services = new ServiceCollection();
+            services.AddScoped<IDatabaseContext, DatabaseContext>();
+            services.AddScoped<IUserAccessService, UserAccessService>();
+            services.AddDbContext<DatabaseContext>();
+
+            ServiceProvider = services.BuildServiceProvider();
+        }
+
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            ConfigureServices();
+            var serviceGetList = (IUserAccessService)ServiceProvider.GetService(typeof(IUserAccessService));
+            System.Windows.Forms.Application.Run(new frmMain(serviceGetList));
+
         }
     }
 }
