@@ -50,17 +50,19 @@ namespace WinFormsApp1
             DGMabda.Columns[1].HeaderText = "نام کاربری";
             DGMabda.Columns[2].HeaderText = "پرسنلی";
             DGMabda.Columns[0].Width = 40;
-            DGMabda.Columns[1].Width = 240;
+            DGMabda.Columns[1].Width = 229;
             DGMabda.Columns[2].Width = 80;
         }
 
         private void SettingGridviewMaghsad(List<GetListDGMaghsadDto> Maghsad)
         {
             DGMaghsad.DataSource = Maghsad;
-            DGMaghsad.Columns[0].HeaderText = "نام کاربری";
-            DGMaghsad.Columns[1].HeaderText = "پرسنلی";
-            DGMaghsad.Columns[0].Width = 279;
-            DGMaghsad.Columns[1].Width = 70;
+            DGMaghsad.Columns[0].HeaderText = "ID";
+            DGMaghsad.Columns[1].HeaderText = "نام کاربری";
+            DGMaghsad.Columns[2].HeaderText = "پرسنلی";
+            DGMaghsad.Columns[0].Width = 40;
+            DGMaghsad.Columns[1].Width = 229;
+            DGMaghsad.Columns[2].Width = 80;
         }
 
         private void button1_Click(object sender, EventArgs e)

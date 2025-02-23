@@ -25,7 +25,7 @@ namespace ApplicationCompro.Services.GetListDG
                 ContactQuery = ContactQuery.Where(p => p.UserName.Contains(searchKey));
             }
 
-            var contacts = ContactQuery.Select(p => new GetListDGMaghsadDto { UserName = p.UserName,Code = p.Code,}).ToList();
+            var contacts = ContactQuery.Select(p => new GetListDGMaghsadDto { UserName = p.UserName,Code = p.Code, Id = p.Id }).ToList();
 
             return contacts;
 
