@@ -68,8 +68,17 @@ namespace WinFormsApp1
         }
         private void Search()
         {
-            bool success = userAccess.CopyUserAccess(sourceUserId, targetUserId);
-            MessageBox.Show(success ? "دسترسی‌ها منتقل شدند!" : "انتقال دسترسی‌ها ناموفق بود.");
+            var result = userAccess.CopyUserAccess(sourceUserId, targetUserId);
+            if (result.IsSuccess)
+            {
+                MessageBox.Show(result.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show(result.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
 
@@ -107,7 +116,28 @@ namespace WinFormsApp1
 
         private void btnDone_Click(object sender, EventArgs e)
         {
-            Search();
+            var mabda = DGMabda.CurrentRow.Cells[1].Value.ToString();
+            var maghsad = DGMaghsad.CurrentRow.Cells[1].Value.ToString();
+
+            DialogResult dialogResult = MessageBox.Show($"به صورت کامل کپی شود ؟ {maghsad} به {mabda} آیا میخوای دسترسی کاربر" ,
+                "کپی کردن دسترسی" ,
+                MessageBoxButtons.YesNoCancel ,
+                MessageBoxIcon.Question ,
+                MessageBoxDefaultButton.Button3);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: false);
+                MessageBox.Show(result.Message);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //view only
+                var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: true);
+                MessageBox.Show(result.Message);
+
+            }
+
+            
         }
     }
 }

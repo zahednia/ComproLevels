@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Application.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Application.Services.CopyUser
 {
     public interface IUserAccessService
     {
-        bool CopyUserAccess(int sourceUserId, int targetUserId);
+        ResultDto CopyUserAccess(int sourceUserId, int targetUserId , bool copyOnlyView = false);
     }
 
 }
