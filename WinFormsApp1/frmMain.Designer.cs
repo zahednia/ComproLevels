@@ -127,10 +127,10 @@
             Controls.Add(btnMaghsad);
             Controls.Add(txtMabda);
             Controls.Add(txtMaghsad);
-            Controls.Add(DGMabda);
             Controls.Add(DGMaghsad);
             Controls.Add(btnDone);
             Controls.Add(lblName);
+            Controls.Add(DGMabda);
             Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmMain";
