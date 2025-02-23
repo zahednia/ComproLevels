@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Windows.Forms;
 using Application.Services.CopyUser;
+using ApplicationCompro.Services.GetListDG;
 
 namespace WinFormsApp1
 {
@@ -18,7 +19,8 @@ namespace WinFormsApp1
             services.AddScoped<IDatabaseContext, DatabaseContext>();
             services.AddScoped<IUserAccessService, UserAccessService>();
             services.AddDbContext<DatabaseContext>();
-
+            services.AddScoped<IGetListService, GetListService>();
+            services.AddScoped<IGetListServiceMaghsad, GetListServiceMaghsad>();
             ServiceProvider = services.BuildServiceProvider();
         }
 
@@ -26,8 +28,10 @@ namespace WinFormsApp1
         static void Main()
         {
             ConfigureServices();
-            var serviceGetList = (IUserAccessService)ServiceProvider.GetService(typeof(IUserAccessService));
-            System.Windows.Forms.Application.Run(new frmMain(serviceGetList));
+            var User = (IUserAccessService)ServiceProvider.GetService(typeof(IUserAccessService));
+            var serviceGetList = (IGetListService)ServiceProvider.GetService(typeof(IGetListService));
+            var serviceGetListMaghsad = (IGetListServiceMaghsad)ServiceProvider.GetService(typeof(IGetListServiceMaghsad));
+            System.Windows.Forms.Application.Run(new frmMain(User , serviceGetList , serviceGetListMaghsad));
 
         }
     }

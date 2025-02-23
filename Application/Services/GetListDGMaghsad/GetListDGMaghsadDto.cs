@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ApplicationCompro.Services.GetListDG
 {
-    public class GetListDGDto
+    public class GetListDGMaghsadDto
     {
-        public int Id { get; set; }
         public string? UserName { get; set; }
         public int Code { get; set; }
     }

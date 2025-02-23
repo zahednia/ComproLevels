@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ApplicationCompro.Services.GetListDG
 {
-    public class GetListDGDto
+    public interface IGetListServiceMaghsad
     {
-        public int Id { get; set; }
-        public string? UserName { get; set; }
-        public int Code { get; set; }
+        List<GetListDGMaghsadDto> ExecuteMaghsad(string? searchKey = null);
     }
 }

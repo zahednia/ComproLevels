@@ -43,7 +43,7 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(338, 30);
+            lblName.Location = new Point(584, 32);
             lblName.Name = "lblName";
             lblName.RightToLeft = RightToLeft.Yes;
             lblName.Size = new Size(204, 19);
@@ -53,7 +53,7 @@
             // btnDone
             // 
             btnDone.BackColor = Color.FromArgb(192, 255, 192);
-            btnDone.Location = new Point(298, 397);
+            btnDone.Location = new Point(516, 653);
             btnDone.Name = "btnDone";
             btnDone.Size = new Size(294, 78);
             btnDone.TabIndex = 1;
@@ -65,35 +65,38 @@
             DGMaghsad.AllowUserToAddRows = false;
             DGMaghsad.AllowUserToDeleteRows = false;
             DGMaghsad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGMaghsad.Location = new Point(499, 111);
+            DGMaghsad.Location = new Point(733, 115);
             DGMaghsad.Name = "DGMaghsad";
             DGMaghsad.ReadOnly = true;
             DGMaghsad.RowTemplate.Height = 25;
-            DGMaghsad.Size = new Size(240, 258);
+            DGMaghsad.Size = new Size(394, 502);
             DGMaghsad.TabIndex = 3;
+            DGMaghsad.DoubleClick += DGMaghsad_DoubleClick;
             // 
             // DGMabda
             // 
             DGMabda.AllowUserToAddRows = false;
             DGMabda.AllowUserToDeleteRows = false;
             DGMabda.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGMabda.Location = new Point(148, 111);
+            DGMabda.Location = new Point(189, 111);
             DGMabda.Name = "DGMabda";
             DGMabda.ReadOnly = true;
             DGMabda.RowTemplate.Height = 25;
-            DGMabda.Size = new Size(240, 258);
+            DGMabda.Size = new Size(394, 506);
             DGMabda.TabIndex = 4;
+            DGMabda.CellContentClick += DGMabda_CellContentClick;
+            DGMabda.DoubleClick += DGMabda_DoubleClick;
             // 
             // txtMaghsad
             // 
-            txtMaghsad.Location = new Point(499, 78);
+            txtMaghsad.Location = new Point(802, 77);
             txtMaghsad.Name = "txtMaghsad";
             txtMaghsad.Size = new Size(173, 27);
             txtMaghsad.TabIndex = 5;
             // 
             // txtMabda
             // 
-            txtMabda.Location = new Point(148, 78);
+            txtMabda.Location = new Point(266, 74);
             txtMabda.Name = "txtMabda";
             txtMabda.Size = new Size(173, 27);
             txtMabda.TabIndex = 6;
@@ -101,28 +104,30 @@
             // btnMaghsad
             // 
             btnMaghsad.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMaghsad.Location = new Point(678, 79);
+            btnMaghsad.Location = new Point(981, 78);
             btnMaghsad.Name = "btnMaghsad";
             btnMaghsad.Size = new Size(61, 23);
             btnMaghsad.TabIndex = 7;
             btnMaghsad.Text = "show";
             btnMaghsad.UseVisualStyleBackColor = true;
+            btnMaghsad.Click += btnMaghsad_Click;
             // 
             // btnMabda
             // 
             btnMabda.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMabda.Location = new Point(327, 79);
+            btnMabda.Location = new Point(445, 75);
             btnMabda.Name = "btnMabda";
             btnMabda.Size = new Size(61, 23);
             btnMabda.TabIndex = 8;
             btnMabda.Text = "show";
             btnMabda.UseVisualStyleBackColor = true;
+            btnMabda.Click += btnMabda_Click;
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(883, 506);
+            ClientSize = new Size(1377, 798);
             Controls.Add(btnMabda);
             Controls.Add(btnMaghsad);
             Controls.Add(txtMabda);
@@ -134,8 +139,7 @@
             Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmMain";
-            RightToLeft = RightToLeft.Yes;
-            RightToLeftLayout = true;
+            RightToLeft = RightToLeft.No;
             Text = "انتقال دسترسی";
             Load += frmMain_Load;
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).EndInit();
