@@ -43,6 +43,7 @@ public class UserAccessService : IUserAccessService
         var newAccessLevels = sourceAccessLevels.Select(a => new AccessLevel
         {
             User_Id = targetUserId,
+            AccessLevel_Id= a.AccessLevel_Id,
             AccessView = a.AccessView,
             AccessNew = a.AccessView,
             AccessEdit = a.AccessEdit,

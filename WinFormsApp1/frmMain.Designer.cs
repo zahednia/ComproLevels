@@ -59,6 +59,7 @@
             btnDone.TabIndex = 1;
             btnDone.Text = "DONE";
             btnDone.UseVisualStyleBackColor = false;
+            btnDone.Click += new System.EventHandler(btnDone_Click);
             // 
             // DGMaghsad
             // 

@@ -20,6 +20,8 @@ namespace WinFormsApp1
         private readonly IUserAccessService userAccess;
         private readonly IGetListService getMabda;
         private readonly IGetListServiceMaghsad getMaghsad;
+        private  int sourceUserId;
+        private  int targetUserId;
 
         public frmMain(IUserAccessService userAccess,
             IGetListService getMabda, IGetListServiceMaghsad getMaghsad)
@@ -64,16 +66,12 @@ namespace WinFormsApp1
             DGMaghsad.Columns[1].Width = 229;
             DGMaghsad.Columns[2].Width = 80;
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Search()
         {
-            int sourceUserId = int.Parse(txtMaghsad.Text);
-            int targetUserId = int.Parse(txtMabda.Text);
-
             bool success = userAccess.CopyUserAccess(sourceUserId, targetUserId);
-
             MessageBox.Show(success ? "دسترسی‌ها منتقل شدند!" : "انتقال دسترسی‌ها ناموفق بود.");
         }
+
 
         private void DGMabda_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -98,12 +96,18 @@ namespace WinFormsApp1
 
         private void DGMabda_DoubleClick(object sender, EventArgs e)
         {
-            int sourceUserId = int.Parse(DGMabda.CurrentRow.Cells[0].Value.ToString());
+            sourceUserId = int.Parse(DGMabda.CurrentRow.Cells[0].Value.ToString());
         }
+
 
         private void DGMaghsad_DoubleClick(object sender, EventArgs e)
         {
-            int targetUserId = int.Parse(DGMabda.CurrentRow.Cells[0].Value.ToString());
+            targetUserId = int.Parse(DGMaghsad.CurrentRow.Cells[0].Value.ToString());
+        }
+
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            Search();
         }
     }
 }
