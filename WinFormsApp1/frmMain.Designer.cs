@@ -28,55 +28,131 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.SuspendLayout();
+            lblName = new Label();
+            btnDone = new Button();
+            DGMaghsad = new DataGridView();
+            DGMabda = new DataGridView();
+            txtMaghsad = new TextBox();
+            txtMabda = new TextBox();
+            btnMaghsad = new Button();
+            btnMabda = new Button();
+            ((System.ComponentModel.ISupportInitialize)DGMaghsad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DGMabda).BeginInit();
+            SuspendLayout();
             // 
-            // button1
+            // lblName
             // 
-            this.button1.Location = new System.Drawing.Point(345, 257);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            lblName.AutoSize = true;
+            lblName.Location = new Point(338, 30);
+            lblName.Name = "lblName";
+            lblName.RightToLeft = RightToLeft.Yes;
+            lblName.Size = new Size(204, 19);
+            lblName.TabIndex = 0;
+            lblName.Text = "انتقال دسترسی در کامپرو";
             // 
-            // textBox1
+            // btnDone
             // 
-            this.textBox1.Location = new System.Drawing.Point(498, 172);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 27);
-            this.textBox1.TabIndex = 1;
+            btnDone.BackColor = Color.FromArgb(192, 255, 192);
+            btnDone.Location = new Point(298, 397);
+            btnDone.Name = "btnDone";
+            btnDone.Size = new Size(294, 78);
+            btnDone.TabIndex = 1;
+            btnDone.Text = "DONE";
+            btnDone.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // DGMaghsad
             // 
-            this.textBox2.Location = new System.Drawing.Point(192, 172);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 27);
-            this.textBox2.TabIndex = 2;
+            DGMaghsad.AllowUserToAddRows = false;
+            DGMaghsad.AllowUserToDeleteRows = false;
+            DGMaghsad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGMaghsad.Location = new Point(499, 111);
+            DGMaghsad.Name = "DGMaghsad";
+            DGMaghsad.ReadOnly = true;
+            DGMaghsad.RowTemplate.Height = 25;
+            DGMaghsad.Size = new Size(240, 258);
+            DGMaghsad.TabIndex = 3;
+            // 
+            // DGMabda
+            // 
+            DGMabda.AllowUserToAddRows = false;
+            DGMabda.AllowUserToDeleteRows = false;
+            DGMabda.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGMabda.Location = new Point(148, 111);
+            DGMabda.Name = "DGMabda";
+            DGMabda.ReadOnly = true;
+            DGMabda.RowTemplate.Height = 25;
+            DGMabda.Size = new Size(240, 258);
+            DGMabda.TabIndex = 4;
+            // 
+            // txtMaghsad
+            // 
+            txtMaghsad.Location = new Point(499, 78);
+            txtMaghsad.Name = "txtMaghsad";
+            txtMaghsad.Size = new Size(173, 27);
+            txtMaghsad.TabIndex = 5;
+            // 
+            // txtMabda
+            // 
+            txtMabda.Location = new Point(148, 78);
+            txtMabda.Name = "txtMabda";
+            txtMabda.Size = new Size(173, 27);
+            txtMabda.TabIndex = 6;
+            // 
+            // btnMaghsad
+            // 
+            btnMaghsad.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMaghsad.Location = new Point(678, 79);
+            btnMaghsad.Name = "btnMaghsad";
+            btnMaghsad.Size = new Size(61, 23);
+            btnMaghsad.TabIndex = 7;
+            btnMaghsad.Text = "show";
+            btnMaghsad.UseVisualStyleBackColor = true;
+            // 
+            // btnMabda
+            // 
+            btnMabda.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            btnMabda.Location = new Point(327, 79);
+            btnMabda.Name = "btnMabda";
+            btnMabda.Size = new Size(61, 23);
+            btnMabda.TabIndex = 8;
+            btnMabda.Text = "show";
+            btnMabda.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Name = "frmMain";
-            this.Text = "frmMain";
-            this.Load += new System.EventHandler(this.frmMain_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(10F, 19F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(883, 506);
+            Controls.Add(btnMabda);
+            Controls.Add(btnMaghsad);
+            Controls.Add(txtMabda);
+            Controls.Add(txtMaghsad);
+            Controls.Add(DGMabda);
+            Controls.Add(DGMaghsad);
+            Controls.Add(btnDone);
+            Controls.Add(lblName);
+            Font = new Font("Tahoma", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "frmMain";
+            RightToLeft = RightToLeft.Yes;
+            RightToLeftLayout = true;
+            Text = "انتقال دسترسی";
+            Load += frmMain_Load;
+            ((System.ComponentModel.ISupportInitialize)DGMaghsad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DGMabda).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Button button1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Label lblName;
+        private Button btnDone;
+        private DataGridView DGMaghsad;
+        private DataGridView DGMabda;
+        private TextBox txtMaghsad;
+        private TextBox txtMabda;
+        private Button btnMaghsad;
+        private Button btnMabda;
     }
 }

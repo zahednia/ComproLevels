@@ -23,7 +23,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             this.userAccess = userAccess;
-            
+
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -33,12 +33,14 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int sourceUserId = int.Parse(textBox1.Text);
-            int targetUserId = int.Parse(textBox2.Text);
+            int sourceUserId = int.Parse(txtMaghsad.Text);
+            int targetUserId = int.Parse(txtMabda.Text);
 
             bool success = userAccess.CopyUserAccess(sourceUserId, targetUserId);
 
             MessageBox.Show(success ? "دسترسی‌ها منتقل شدند!" : "انتقال دسترسی‌ها ناموفق بود.");
         }
+
+
     }
 }
