@@ -45,19 +45,21 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(584, 19);
+            lblName.BackColor = Color.FromArgb(192, 192, 255);
+            lblName.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblName.Location = new Point(545, 20);
             lblName.Name = "lblName";
             lblName.RightToLeft = RightToLeft.Yes;
-            lblName.Size = new Size(204, 19);
+            lblName.Size = new Size(243, 23);
             lblName.TabIndex = 0;
             lblName.Text = "انتقال دسترسی در کامپرو";
             // 
             // btnDone
             // 
             btnDone.BackColor = Color.FromArgb(192, 255, 192);
-            btnDone.Location = new Point(516, 653);
+            btnDone.Location = new Point(237, 655);
             btnDone.Name = "btnDone";
-            btnDone.Size = new Size(294, 78);
+            btnDone.Size = new Size(855, 78);
             btnDone.TabIndex = 1;
             btnDone.Text = "DONE";
             btnDone.UseVisualStyleBackColor = false;
@@ -92,6 +94,7 @@
             // 
             // txtMaghsad
             // 
+            txtMaghsad.BorderStyle = BorderStyle.FixedSingle;
             txtMaghsad.Location = new Point(733, 82);
             txtMaghsad.Name = "txtMaghsad";
             txtMaghsad.Size = new Size(250, 27);
@@ -106,41 +109,45 @@
             // 
             // btnMaghsad
             // 
+            btnMaghsad.BackColor = Color.FromArgb(192, 192, 255);
             btnMaghsad.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnMaghsad.Location = new Point(989, 78);
             btnMaghsad.Name = "btnMaghsad";
             btnMaghsad.Size = new Size(117, 31);
             btnMaghsad.TabIndex = 7;
             btnMaghsad.Text = "show";
-            btnMaghsad.UseVisualStyleBackColor = true;
+            btnMaghsad.UseVisualStyleBackColor = false;
             btnMaghsad.Click += btnMaghsad_Click;
             // 
             // btnMabda
             // 
+            btnMabda.BackColor = Color.FromArgb(192, 192, 255);
             btnMabda.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnMabda.Location = new Point(445, 74);
             btnMabda.Name = "btnMabda";
             btnMabda.Size = new Size(117, 31);
             btnMabda.TabIndex = 8;
             btnMabda.Text = "show";
-            btnMabda.UseVisualStyleBackColor = true;
+            btnMabda.UseVisualStyleBackColor = false;
             btnMabda.Click += btnMabda_Click;
             // 
             // lblmabda
             // 
             lblmabda.AutoSize = true;
-            lblmabda.Location = new Point(368, 44);
+            lblmabda.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblmabda.Location = new Point(359, 44);
             lblmabda.Name = "lblmabda";
-            lblmabda.Size = new Size(38, 19);
+            lblmabda.Size = new Size(45, 23);
             lblmabda.TabIndex = 9;
             lblmabda.Text = "مبدا";
             // 
             // lblMaghsad
             // 
             lblMaghsad.AutoSize = true;
-            lblMaghsad.Location = new Point(920, 44);
+            lblMaghsad.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMaghsad.Location = new Point(909, 44);
             lblMaghsad.Name = "lblMaghsad";
-            lblMaghsad.Size = new Size(53, 19);
+            lblMaghsad.Size = new Size(62, 23);
             lblMaghsad.TabIndex = 10;
             lblMaghsad.Text = "مقصد";
             // 
