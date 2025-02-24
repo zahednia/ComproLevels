@@ -22,7 +22,11 @@ public class UserAccessService : IUserAccessService
         var targetUser = _context.ComproUsers.Find(targetUserId);
         if (sourceUser == null || targetUser == null)
         {
-            throw new ArgumentException("یکی از کاربران یافت نشد.");
+            return new ResultDto
+            {
+                IsSuccess = false,
+                Message = $"کاربری انتخاب نشد . لطفا برای انتخاب کاربر برروی آن ها دابل کلیک فرماییید",
+            };
         }
 
         // دریافت دسترسی‌های کاربر مبدا
@@ -32,7 +36,11 @@ public class UserAccessService : IUserAccessService
 
         if (!sourceAccessLevels.Any())
         {
-            throw new InvalidOperationException("کاربر مبدا هیچ دسترسی‌ای ندارد.");
+            return new ResultDto
+            {
+                IsSuccess = false,
+                Message = $"کاربر مبدا دسترسی ندارد",
+            };
         }
 
         // حذف دسترسی‌های قبلی کاربر مقصد

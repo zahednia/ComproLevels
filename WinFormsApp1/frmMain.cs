@@ -66,21 +66,6 @@ namespace WinFormsApp1
             DGMaghsad.Columns[1].Width = 229;
             DGMaghsad.Columns[2].Width = 80;
         }
-        private void Search()
-        {
-            var result = userAccess.CopyUserAccess(sourceUserId, targetUserId);
-            if (result.IsSuccess)
-            {
-                MessageBox.Show(result.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-            else
-            {
-                MessageBox.Show(result.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
-
 
         private void DGMabda_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

@@ -36,6 +36,8 @@
             txtMabda = new TextBox();
             btnMaghsad = new Button();
             btnMabda = new Button();
+            lblmabda = new Label();
+            lblMaghsad = new Label();
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).BeginInit();
             SuspendLayout();
@@ -43,7 +45,7 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(584, 32);
+            lblName.Location = new Point(584, 19);
             lblName.Name = "lblName";
             lblName.RightToLeft = RightToLeft.Yes;
             lblName.Size = new Size(204, 19);
@@ -59,7 +61,7 @@
             btnDone.TabIndex = 1;
             btnDone.Text = "DONE";
             btnDone.UseVisualStyleBackColor = false;
-            btnDone.Click += new System.EventHandler(btnDone_Click);
+            btnDone.Click += btnDone_Click;
             // 
             // DGMaghsad
             // 
@@ -90,24 +92,24 @@
             // 
             // txtMaghsad
             // 
-            txtMaghsad.Location = new Point(802, 77);
+            txtMaghsad.Location = new Point(733, 82);
             txtMaghsad.Name = "txtMaghsad";
-            txtMaghsad.Size = new Size(173, 27);
+            txtMaghsad.Size = new Size(250, 27);
             txtMaghsad.TabIndex = 5;
             // 
             // txtMabda
             // 
-            txtMabda.Location = new Point(266, 74);
+            txtMabda.Location = new Point(189, 78);
             txtMabda.Name = "txtMabda";
-            txtMabda.Size = new Size(173, 27);
+            txtMabda.Size = new Size(250, 27);
             txtMabda.TabIndex = 6;
             // 
             // btnMaghsad
             // 
             btnMaghsad.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMaghsad.Location = new Point(981, 78);
+            btnMaghsad.Location = new Point(989, 78);
             btnMaghsad.Name = "btnMaghsad";
-            btnMaghsad.Size = new Size(61, 23);
+            btnMaghsad.Size = new Size(117, 31);
             btnMaghsad.TabIndex = 7;
             btnMaghsad.Text = "show";
             btnMaghsad.UseVisualStyleBackColor = true;
@@ -116,19 +118,39 @@
             // btnMabda
             // 
             btnMabda.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMabda.Location = new Point(445, 75);
+            btnMabda.Location = new Point(445, 74);
             btnMabda.Name = "btnMabda";
-            btnMabda.Size = new Size(61, 23);
+            btnMabda.Size = new Size(117, 31);
             btnMabda.TabIndex = 8;
             btnMabda.Text = "show";
             btnMabda.UseVisualStyleBackColor = true;
             btnMabda.Click += btnMabda_Click;
+            // 
+            // lblmabda
+            // 
+            lblmabda.AutoSize = true;
+            lblmabda.Location = new Point(368, 44);
+            lblmabda.Name = "lblmabda";
+            lblmabda.Size = new Size(38, 19);
+            lblmabda.TabIndex = 9;
+            lblmabda.Text = "مبدا";
+            // 
+            // lblMaghsad
+            // 
+            lblMaghsad.AutoSize = true;
+            lblMaghsad.Location = new Point(920, 44);
+            lblMaghsad.Name = "lblMaghsad";
+            lblMaghsad.Size = new Size(53, 19);
+            lblMaghsad.TabIndex = 10;
+            lblMaghsad.Text = "مقصد";
             // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1377, 798);
+            Controls.Add(lblMaghsad);
+            Controls.Add(lblmabda);
             Controls.Add(btnMabda);
             Controls.Add(btnMaghsad);
             Controls.Add(txtMabda);
@@ -159,5 +181,7 @@
         private TextBox txtMabda;
         private Button btnMaghsad;
         private Button btnMabda;
+        private Label lblmabda;
+        private Label lblMaghsad;
     }
 }
