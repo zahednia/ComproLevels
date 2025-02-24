@@ -47,7 +47,7 @@
             lblName.AutoSize = true;
             lblName.BackColor = Color.FromArgb(192, 192, 255);
             lblName.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblName.Location = new Point(545, 20);
+            lblName.Location = new Point(536, 20);
             lblName.Name = "lblName";
             lblName.RightToLeft = RightToLeft.Yes;
             lblName.Size = new Size(243, 23);
@@ -57,7 +57,7 @@
             // btnDone
             // 
             btnDone.BackColor = Color.FromArgb(192, 255, 192);
-            btnDone.Location = new Point(237, 655);
+            btnDone.Location = new Point(240, 683);
             btnDone.Name = "btnDone";
             btnDone.Size = new Size(855, 78);
             btnDone.TabIndex = 1;
@@ -70,7 +70,7 @@
             DGMaghsad.AllowUserToAddRows = false;
             DGMaghsad.AllowUserToDeleteRows = false;
             DGMaghsad.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGMaghsad.Location = new Point(733, 115);
+            DGMaghsad.Location = new Point(736, 143);
             DGMaghsad.Name = "DGMaghsad";
             DGMaghsad.ReadOnly = true;
             DGMaghsad.RowTemplate.Height = 25;
@@ -83,7 +83,7 @@
             DGMabda.AllowUserToAddRows = false;
             DGMabda.AllowUserToDeleteRows = false;
             DGMabda.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGMabda.Location = new Point(189, 111);
+            DGMabda.Location = new Point(192, 139);
             DGMabda.Name = "DGMabda";
             DGMabda.ReadOnly = true;
             DGMabda.RowTemplate.Height = 25;
@@ -95,14 +95,14 @@
             // txtMaghsad
             // 
             txtMaghsad.BorderStyle = BorderStyle.FixedSingle;
-            txtMaghsad.Location = new Point(733, 82);
+            txtMaghsad.Location = new Point(736, 110);
             txtMaghsad.Name = "txtMaghsad";
             txtMaghsad.Size = new Size(250, 27);
             txtMaghsad.TabIndex = 5;
             // 
             // txtMabda
             // 
-            txtMabda.Location = new Point(189, 78);
+            txtMabda.Location = new Point(192, 106);
             txtMabda.Name = "txtMabda";
             txtMabda.Size = new Size(250, 27);
             txtMabda.TabIndex = 6;
@@ -111,7 +111,7 @@
             // 
             btnMaghsad.BackColor = Color.FromArgb(192, 192, 255);
             btnMaghsad.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMaghsad.Location = new Point(989, 78);
+            btnMaghsad.Location = new Point(992, 106);
             btnMaghsad.Name = "btnMaghsad";
             btnMaghsad.Size = new Size(117, 31);
             btnMaghsad.TabIndex = 7;
@@ -123,7 +123,7 @@
             // 
             btnMabda.BackColor = Color.FromArgb(192, 192, 255);
             btnMabda.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMabda.Location = new Point(445, 74);
+            btnMabda.Location = new Point(448, 102);
             btnMabda.Name = "btnMabda";
             btnMabda.Size = new Size(117, 31);
             btnMabda.TabIndex = 8;
@@ -135,7 +135,7 @@
             // 
             lblmabda.AutoSize = true;
             lblmabda.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblmabda.Location = new Point(257, 44);
+            lblmabda.Location = new Point(211, 72);
             lblmabda.Name = "lblmabda";
             lblmabda.Size = new Size(45, 23);
             lblmabda.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             lblMaghsad.AutoSize = true;
             lblMaghsad.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMaghsad.Location = new Point(1030, 44);
+            lblMaghsad.Location = new Point(758, 72);
             lblMaghsad.Name = "lblMaghsad";
             lblMaghsad.Size = new Size(62, 23);
             lblMaghsad.TabIndex = 10;
@@ -155,7 +155,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1377, 798);
+            ClientSize = new Size(1342, 786);
             Controls.Add(lblMaghsad);
             Controls.Add(lblmabda);
             Controls.Add(btnMabda);

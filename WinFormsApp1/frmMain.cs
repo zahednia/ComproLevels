@@ -98,7 +98,7 @@ namespace WinFormsApp1
             sourceUserId = int.Parse(DGMabda.CurrentRow.Cells[0].Value.ToString());
 
             var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
-            var Code = int.Parse(DGMabda.CurrentRow.Cells[0].Value.ToString());
+            var Code = int.Parse(DGMabda.CurrentRow.Cells[2].Value.ToString());
             var Showname = showName.ShowName(new ShowNameDTO(),Code);
             if (Showname.IsSuccess == false)
             {
@@ -107,12 +107,25 @@ namespace WinFormsApp1
             }
 
             lblmabda.Text = Showname.Data.FullNameE;
+            lblmabda.BackColor = Color.Green;
         }
 
 
         private void DGMaghsad_DoubleClick(object sender, EventArgs e)
         {
             targetUserId = int.Parse(DGMaghsad.CurrentRow.Cells[0].Value.ToString());
+
+            var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
+            var Code = int.Parse(DGMaghsad.CurrentRow.Cells[2].Value.ToString());
+            var Showname = showName.ShowName(new ShowNameDTO(), Code);
+            if (Showname.IsSuccess == false)
+            {
+                MessageBox.Show(Showname.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            lblMaghsad.Text = Showname.Data.FullNameE;
+            lblMaghsad.BackColor = Color.Green;
         }
 
         private void btnDone_Click(object sender, EventArgs e)

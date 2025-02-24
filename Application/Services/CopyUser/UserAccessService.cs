@@ -29,6 +29,15 @@ public class UserAccessService : IUserAccessService
             };
         }
 
+        else if (sourceUser == targetUser)
+        {
+            return new ResultDto
+            {
+                IsSuccess = false,
+                Message = $"نمیتونی دسترسی خودتو کپی کنی",
+            };
+        }
+
         // دریافت دسترسی‌های کاربر مبدا
         var sourceAccessLevels = _context.GeneralUserAccessLevel
             .Where(a => a.User_Id == sourceUserId)

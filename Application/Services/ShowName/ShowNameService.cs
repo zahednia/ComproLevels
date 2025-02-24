@@ -19,7 +19,16 @@ namespace ApplicationCompro.Services.ShowName
 
         public ResultDto<ShowNameDTO> ShowName(ShowNameDTO showNameDTO, int Code)
         {
-            var contact = databaseContext.Personals.Find(Code);
+            var contact = databaseContext.Personals.FirstOrDefault(p => p.Code == Code);
+            
+            if (contact == null)
+            {
+                return new ResultDto<ShowNameDTO>
+                {
+                    IsSuccess = false,
+                    Message = "کد پرسنلی یافت نشد"
+                };
+            }
 
             var data = new ShowNameDTO
             {
