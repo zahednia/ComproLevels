@@ -18,29 +18,46 @@ public class UserAccessService : IUserAccessService
     public ResultDto CopyUserAccess(int sourceUserId, int targetUserId , bool copyOnlyView = false)
     {
         // بررسی وجود کاربران
-        var sourceUser = _context.ComproUsers.Find(sourceUserId);
-        var targetUser = _context.ComproUsers.Find(targetUserId);
+        var sourceUser = _context.Users.Find(sourceUserId);
+        var targetUser = _context.Users.Find(targetUserId);
         if (sourceUser == null || targetUser == null)
         {
-            throw new ArgumentException("یکی از کاربران یافت نشد.");
+            return new ResultDto
+            {
+                IsSuccess = false,
+                Message = $"کاربری انتخاب نشد . لطفا برای انتخاب کاربر برروی آن ها دابل کلیک فرماییید",
+            };
+        }
+
+        else if (sourceUser == targetUser)
+        {
+            return new ResultDto
+            {
+                IsSuccess = false,
+                Message = $"نمیتونی دسترسی خودتو کپی کنی",
+            };
         }
 
         // دریافت دسترسی‌های کاربر مبدا
-        var sourceAccessLevels = _context.AccessLevels
+        var sourceAccessLevels = _context.GeneralUserAccessLevel
             .Where(a => a.User_Id == sourceUserId)
             .ToList();
 
         if (!sourceAccessLevels.Any())
         {
-            throw new InvalidOperationException("کاربر مبدا هیچ دسترسی‌ای ندارد.");
+            return new ResultDto
+            {
+                IsSuccess = false,
+                Message = $"کاربر مبدا دسترسی ندارد",
+            };
         }
 
         // حذف دسترسی‌های قبلی کاربر مقصد
-        var targetAccessLevels = _context.AccessLevels.Where(a => a.User_Id == targetUserId);
-        _context.AccessLevels.RemoveRange(targetAccessLevels);
+        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId);
+        _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
        
         // کپی کردن دسترسی‌ها
-        var newAccessLevels = sourceAccessLevels.Select(a => new AccessLevel
+        var newAccessLevels = sourceAccessLevels.Select(a => new GeneralUserAccessLevel
         {
             User_Id = targetUserId,
             AccessLevel_Id= a.AccessLevel_Id,
@@ -54,7 +71,7 @@ public class UserAccessService : IUserAccessService
 
         }).ToList();
 
-        _context.AccessLevels.AddRange(newAccessLevels);
+        _context.GeneralUserAccessLevel.AddRange(newAccessLevels);
         _context.SaveChanges();
 
         return new ResultDto

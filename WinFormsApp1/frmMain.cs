@@ -1,5 +1,6 @@
 ﻿using Application.Services.CopyUser;
 using ApplicationCompro.Services.GetListDG;
+using ApplicationCompro.Services.ShowName;
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -20,16 +21,19 @@ namespace WinFormsApp1
         private readonly IUserAccessService userAccess;
         private readonly IGetListService getMabda;
         private readonly IGetListServiceMaghsad getMaghsad;
+        private readonly IShowName showName;
+        private readonly int Code;
         private  int sourceUserId;
         private  int targetUserId;
 
         public frmMain(IUserAccessService userAccess,
-            IGetListService getMabda, IGetListServiceMaghsad getMaghsad)
+            IGetListService getMabda, IGetListServiceMaghsad getMaghsad ,IShowName showName)
         {
             InitializeComponent();
             this.userAccess = userAccess;
             this.getMabda = getMabda;
             this.getMaghsad = getMaghsad;
+            this.showName = showName;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -66,21 +70,6 @@ namespace WinFormsApp1
             DGMaghsad.Columns[1].Width = 229;
             DGMaghsad.Columns[2].Width = 80;
         }
-        private void Search()
-        {
-            var result = userAccess.CopyUserAccess(sourceUserId, targetUserId);
-            if (result.IsSuccess)
-            {
-                MessageBox.Show(result.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-            else
-            {
-                MessageBox.Show(result.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-        }
-
 
         private void DGMabda_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -105,13 +94,38 @@ namespace WinFormsApp1
 
         private void DGMabda_DoubleClick(object sender, EventArgs e)
         {
+
             sourceUserId = int.Parse(DGMabda.CurrentRow.Cells[0].Value.ToString());
+
+            var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
+            var Code = int.Parse(DGMabda.CurrentRow.Cells[2].Value.ToString());
+            var Showname = showName.ShowName(new ShowNameDTO(),Code);
+            if (Showname.IsSuccess == false)
+            {
+                MessageBox.Show(Showname.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            lblmabda.Text = Showname.Data.FullNameE;
+            lblmabda.BackColor = Color.Green;
         }
 
 
         private void DGMaghsad_DoubleClick(object sender, EventArgs e)
         {
             targetUserId = int.Parse(DGMaghsad.CurrentRow.Cells[0].Value.ToString());
+
+            var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
+            var Code = int.Parse(DGMaghsad.CurrentRow.Cells[2].Value.ToString());
+            var Showname = showName.ShowName(new ShowNameDTO(), Code);
+            if (Showname.IsSuccess == false)
+            {
+                MessageBox.Show(Showname.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            lblMaghsad.Text = Showname.Data.FullNameE;
+            lblMaghsad.BackColor = Color.Green;
         }
 
         private void btnDone_Click(object sender, EventArgs e)

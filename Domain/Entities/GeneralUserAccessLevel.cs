@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class AccessLevel
+    public class GeneralUserAccessLevel
     {
         public int Id { get; set; }
         public int User_Id { get; set; }

@@ -14,10 +14,12 @@ namespace Persistence.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=NewDbContact;Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=ComproLevels;Integrated Security=True;");
         }
 
-        public DbSet<AccessLevel> AccessLevels { get; set; }
-        public DbSet<ComproUser> ComproUsers { get; set; }
+        public DbSet<GeneralUserAccessLevel> GeneralUserAccessLevel { get; set; }
+        public DbSet<Users> Users { get; set; }
+        public DbSet<Personals> Personals { get; set; }
+
     }
 }
