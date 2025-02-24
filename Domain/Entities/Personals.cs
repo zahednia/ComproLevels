@@ -9,7 +9,8 @@ namespace Domain.Entities
 {
     public class Personals
     {
-        [Key]
+        public int Id { get; set; }
+
         public int Code { get; set; }
 
         public string? FullNameE { get; set; }

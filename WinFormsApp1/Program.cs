@@ -7,6 +7,7 @@ using System;
 using System.Windows.Forms;
 using Application.Services.CopyUser;
 using ApplicationCompro.Services.GetListDG;
+using ApplicationCompro.Services.ShowName;
 
 namespace WinFormsApp1
 {
@@ -20,6 +21,7 @@ namespace WinFormsApp1
             services.AddScoped<IUserAccessService, UserAccessService>();
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<IGetListService, GetListService>();
+            services.AddScoped<IShowName, ShowNameService>();
             services.AddScoped<IGetListServiceMaghsad, GetListServiceMaghsad>();
             ServiceProvider = services.BuildServiceProvider();
         }
@@ -28,10 +30,11 @@ namespace WinFormsApp1
         static void Main()
         {
             ConfigureServices();
+            var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
             var User = (IUserAccessService)ServiceProvider.GetService(typeof(IUserAccessService));
             var serviceGetList = (IGetListService)ServiceProvider.GetService(typeof(IGetListService));
             var serviceGetListMaghsad = (IGetListServiceMaghsad)ServiceProvider.GetService(typeof(IGetListServiceMaghsad));
-            System.Windows.Forms.Application.Run(new frmMain(User , serviceGetList , serviceGetListMaghsad));
+            System.Windows.Forms.Application.Run(new frmMain(User , serviceGetList , serviceGetListMaghsad, serviceAdd ));
 
         }
     }

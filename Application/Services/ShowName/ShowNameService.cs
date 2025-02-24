@@ -19,7 +19,19 @@ namespace ApplicationCompro.Services.ShowName
 
         public ResultDto<ShowNameDTO> ShowName(ShowNameDTO showNameDTO, int Code)
         {
-            throw new NotImplementedException();
+            var contact = databaseContext.Personals.Find(Code);
+
+            var data = new ShowNameDTO
+            {
+                 Code = contact.Code,
+                 FullNameE = contact.FullNameE
+            };
+
+            return new ResultDto<ShowNameDTO>
+            {
+                Data = data,
+                IsSuccess = true,
+            };
         }
     }
 }
