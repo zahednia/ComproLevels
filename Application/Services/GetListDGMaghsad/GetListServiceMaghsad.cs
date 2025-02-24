@@ -18,7 +18,7 @@ namespace ApplicationCompro.Services.GetListDG
 
         public List<GetListDGMaghsadDto> ExecuteMaghsad(string? searchKey = null)
         {
-            var ContactQuery = databaseContext.ComproUsers.AsQueryable();
+            var ContactQuery = databaseContext.Users.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchKey))
             {

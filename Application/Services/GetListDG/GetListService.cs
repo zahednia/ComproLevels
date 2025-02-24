@@ -13,7 +13,7 @@ namespace ApplicationCompro.Services.GetListDG
 
         public List<GetListDGDto> Execute(string? searchKey = null)
         {
-            var MabdaQuery = databaseContext.ComproUsers.AsQueryable();
+            var MabdaQuery = databaseContext.Users.AsQueryable();
 
             if (!string.IsNullOrEmpty(searchKey))
             {

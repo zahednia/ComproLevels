@@ -135,7 +135,7 @@
             // 
             lblmabda.AutoSize = true;
             lblmabda.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblmabda.Location = new Point(359, 44);
+            lblmabda.Location = new Point(257, 44);
             lblmabda.Name = "lblmabda";
             lblmabda.Size = new Size(45, 23);
             lblmabda.TabIndex = 9;
@@ -145,7 +145,7 @@
             // 
             lblMaghsad.AutoSize = true;
             lblMaghsad.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMaghsad.Location = new Point(909, 44);
+            lblMaghsad.Location = new Point(1030, 44);
             lblMaghsad.Name = "lblMaghsad";
             lblMaghsad.Size = new Size(62, 23);
             lblMaghsad.TabIndex = 10;
