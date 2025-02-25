@@ -34,7 +34,7 @@ public class UserAccessService : IUserAccessService
             return new ResultDto
             {
                 IsSuccess = false,
-                Message = $"نمیتونی دسترسی خودتو کپی کنی",
+                Message = $"نمیتونی دسترسی یکسان رو کپی کنی",
             };
         }
 

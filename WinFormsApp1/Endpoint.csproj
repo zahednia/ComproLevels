@@ -6,7 +6,12 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Arm-White.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Arm-White.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Application\ApplicationCompro.csproj" />

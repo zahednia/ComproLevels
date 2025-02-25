@@ -1,16 +1,6 @@
 ﻿using Application.Services.CopyUser;
 using ApplicationCompro.Services.GetListDG;
 using ApplicationCompro.Services.ShowName;
-using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 
 
@@ -23,11 +13,11 @@ namespace WinFormsApp1
         private readonly IGetListServiceMaghsad getMaghsad;
         private readonly IShowName showName;
         private readonly int Code;
-        private  int sourceUserId;
-        private  int targetUserId;
+        private int sourceUserId;
+        private int targetUserId;
 
         public frmMain(IUserAccessService userAccess,
-            IGetListService getMabda, IGetListServiceMaghsad getMaghsad ,IShowName showName)
+            IGetListService getMabda, IGetListServiceMaghsad getMaghsad, IShowName showName)
         {
             InitializeComponent();
             this.userAccess = userAccess;
@@ -38,6 +28,8 @@ namespace WinFormsApp1
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+
+
             this.Cursor = Cursors.WaitCursor;
 
             var Mabda = getMabda.Execute();
@@ -47,6 +39,9 @@ namespace WinFormsApp1
             SettingGridviewMaghsad(Maghsad);
 
             this.Cursor = Cursors.Default;
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle; // یا FixedDialog و ...
+            this.MaximizeBox = false;
         }
 
         private void SettingGridview(List<GetListDGDto> Mabda)
@@ -99,7 +94,7 @@ namespace WinFormsApp1
 
             var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
             var Code = int.Parse(DGMabda.CurrentRow.Cells[2].Value.ToString());
-            var Showname = showName.ShowName(new ShowNameDTO(),Code);
+            var Showname = showName.ShowName(new ShowNameDTO(), Code);
             if (Showname.IsSuccess == false)
             {
                 MessageBox.Show(Showname.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -133,11 +128,11 @@ namespace WinFormsApp1
             var mabda = DGMabda.CurrentRow.Cells[1].Value.ToString();
             var maghsad = DGMaghsad.CurrentRow.Cells[1].Value.ToString();
 
-            DialogResult dialogResult = MessageBox.Show($"به صورت کامل کپی شود ؟ {maghsad} به {mabda} آیا میخوای دسترسی کاربر" ,
-                "کپی کردن دسترسی" ,
-                MessageBoxButtons.YesNoCancel ,
-                MessageBoxIcon.Question ,
-                MessageBoxDefaultButton.Button3);
+            DialogResult dialogResult = MessageBox.Show($"به صورت کامل کپی شود ؟ {maghsad} به {mabda} آیا میخوای دسترسی کاربر",
+                "کپی کردن دسترسی",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
                 var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: false);
@@ -151,7 +146,49 @@ namespace WinFormsApp1
 
             }
 
-            
+
+        }
+
+        private void txtMabda_KeyDown(object sender, KeyEventArgs e)
+        {
+            // اگر کلید Enter فشرده شد
+            if (e.KeyCode == Keys.Enter)
+            {
+                // کار دکمه show را انجام بده
+                btnMabda.PerformClick();
+                // جلوگیرى از ادامه‌ى رویداد پیش‌فرض (مثل بیپ زدن)
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+            // اگر کلید Tab فشرده شد (اختیاری است چون معمولاً ویندوز خودش تب را مدیریت می‌کند)
+            else if (e.KeyCode == Keys.Tab)
+            {
+                // فوکوس را ببریم به تکست‌باکس بعدى
+                txtMaghsad.Focus();
+                // در صورت تمایل برای جلوگیری از رویداد پیش‌فرض
+                e.Handled = true;
+            }
+        }
+
+        private void txtMaghsad_KeyDown(object sender, KeyEventArgs e)
+        {
+            // اگر کلید Enter فشرده شد
+            if (e.KeyCode == Keys.Enter)
+            {
+                // کار دکمه show را انجام بده
+                btnMaghsad.PerformClick();
+                // جلوگیرى از ادامه‌ى رویداد پیش‌فرض (مثل بیپ زدن)
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+            // اگر کلید Tab فشرده شد (اختیاری است چون معمولاً ویندوز خودش تب را مدیریت می‌کند)
+            else if (e.KeyCode == Keys.Tab)
+            {
+                // فوکوس را ببریم به تکست‌باکس بعدى
+                txtMabda.Focus();
+                // در صورت تمایل برای جلوگیری از رویداد پیش‌فرض
+                e.Handled = true;
+            }
         }
     }
 }
