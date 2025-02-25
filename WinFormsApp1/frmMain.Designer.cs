@@ -45,6 +45,7 @@
             lblMaghsad = new Label();
             PicArrow = new PictureBox();
             PicLogo = new PictureBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicArrow).BeginInit();
@@ -56,7 +57,7 @@
             lblName.AutoSize = true;
             lblName.BackColor = SystemColors.Control;
             lblName.Font = new Font("Tahoma", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblName.Location = new Point(493, 21);
+            lblName.Location = new Point(470, 9);
             lblName.Name = "lblName";
             lblName.RightToLeft = RightToLeft.Yes;
             lblName.Size = new Size(345, 33);
@@ -216,19 +217,30 @@
             // PicLogo
             // 
             PicLogo.Image = Endpoint.Properties.Resources.Only_Arm_Reverse;
-            PicLogo.Location = new Point(844, 21);
+            PicLogo.Location = new Point(821, 9);
             PicLogo.Name = "PicLogo";
             PicLogo.Size = new Size(34, 33);
             PicLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLogo.TabIndex = 12;
             PicLogo.TabStop = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Arial", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(429, 765);
+            label1.Name = "label1";
+            label1.Size = new Size(478, 14);
+            label1.TabIndex = 13;
+            label1.Text = "Copyright © 2025 Asia Classification. All rights reserved | Create By Kourosh Zahednia\r\n";
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1342, 786);
+            ClientSize = new Size(1336, 786);
+            Controls.Add(label1);
             Controls.Add(PicLogo);
             Controls.Add(PicArrow);
             Controls.Add(lblMaghsad);
@@ -246,7 +258,7 @@
             Margin = new Padding(4, 3, 4, 3);
             Name = "frmMain";
             RightToLeft = RightToLeft.No;
-            Text = "انتقال دسترسی";
+            Text = "انتقال دسترسی در کامپرو";
             Load += frmMain_Load;
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).EndInit();
@@ -270,5 +282,6 @@
         private Label lblMaghsad;
         private PictureBox PicArrow;
         private PictureBox PicLogo;
+        private Label label1;
     }
 }
