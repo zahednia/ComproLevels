@@ -190,5 +190,10 @@ namespace WinFormsApp1
                 e.Handled = true;
             }
         }
+
+        private void lblMaghsad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

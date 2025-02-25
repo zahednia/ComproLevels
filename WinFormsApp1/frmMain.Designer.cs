@@ -43,14 +43,14 @@
             btnMabda = new Button();
             lblmabda = new Label();
             lblMaghsad = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
+            PicArrow = new PictureBox();
+            PicLogo = new PictureBox();
+            PicLogo2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicArrow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicLogo2).BeginInit();
             SuspendLayout();
             // 
             // lblName
@@ -161,25 +161,25 @@
             // 
             // btnMaghsad
             // 
-            btnMaghsad.BackColor = Color.FromArgb(192, 192, 255);
+            btnMaghsad.BackColor = SystemColors.ActiveBorder;
             btnMaghsad.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMaghsad.Location = new Point(990, 117);
+            btnMaghsad.Location = new Point(990, 121);
             btnMaghsad.Name = "btnMaghsad";
-            btnMaghsad.Size = new Size(117, 31);
+            btnMaghsad.Size = new Size(138, 27);
             btnMaghsad.TabIndex = 7;
-            btnMaghsad.Text = "show";
+            btnMaghsad.Text = "Search";
             btnMaghsad.UseVisualStyleBackColor = false;
             btnMaghsad.Click += btnMaghsad_Click;
             // 
             // btnMabda
             // 
-            btnMabda.BackColor = Color.FromArgb(192, 192, 255);
+            btnMabda.BackColor = SystemColors.ActiveBorder;
             btnMabda.Font = new Font("Tahoma", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            btnMabda.Location = new Point(446, 113);
+            btnMabda.Location = new Point(446, 117);
             btnMabda.Name = "btnMabda";
-            btnMabda.Size = new Size(117, 31);
+            btnMabda.Size = new Size(138, 27);
             btnMabda.TabIndex = 8;
-            btnMabda.Text = "show";
+            btnMabda.Text = "Search";
             btnMabda.UseVisualStyleBackColor = false;
             btnMabda.Click += btnMabda_Click;
             // 
@@ -187,7 +187,7 @@
             // 
             lblmabda.AutoSize = true;
             lblmabda.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblmabda.Location = new Point(209, 83);
+            lblmabda.Location = new Point(199, 83);
             lblmabda.Name = "lblmabda";
             lblmabda.Size = new Size(45, 23);
             lblmabda.TabIndex = 9;
@@ -197,41 +197,42 @@
             // 
             lblMaghsad.AutoSize = true;
             lblMaghsad.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMaghsad.Location = new Point(756, 83);
+            lblMaghsad.Location = new Point(750, 83);
             lblMaghsad.Name = "lblMaghsad";
             lblMaghsad.Size = new Size(62, 23);
             lblMaghsad.TabIndex = 10;
             lblMaghsad.Text = "مقصد";
+            lblMaghsad.Click += lblMaghsad_Click;
             // 
-            // pictureBox1
+            // PicArrow
             // 
-            pictureBox1.Image = Endpoint.Properties.Resources.fast_forward;
-            pictureBox1.Location = new Point(602, 207);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 106);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 11;
-            pictureBox1.TabStop = false;
+            PicArrow.Image = Endpoint.Properties.Resources.fast_forward;
+            PicArrow.Location = new Point(608, 335);
+            PicArrow.Name = "PicArrow";
+            PicArrow.Size = new Size(100, 106);
+            PicArrow.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicArrow.TabIndex = 11;
+            PicArrow.TabStop = false;
             // 
-            // pictureBox2
+            // PicLogo
             // 
-            pictureBox2.Image = Endpoint.Properties.Resources.Only_Arm_Reverse;
-            pictureBox2.Location = new Point(771, 12);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(41, 38);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 12;
-            pictureBox2.TabStop = false;
+            PicLogo.Image = Endpoint.Properties.Resources.Only_Arm_Reverse;
+            PicLogo.Location = new Point(771, 12);
+            PicLogo.Name = "PicLogo";
+            PicLogo.Size = new Size(41, 38);
+            PicLogo.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLogo.TabIndex = 12;
+            PicLogo.TabStop = false;
             // 
-            // pictureBox3
+            // PicLogo2
             // 
-            pictureBox3.Image = Endpoint.Properties.Resources.Only_Arm_Reverse;
-            pictureBox3.Location = new Point(475, 12);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(41, 38);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 13;
-            pictureBox3.TabStop = false;
+            PicLogo2.Image = Endpoint.Properties.Resources.Only_Arm_Reverse;
+            PicLogo2.Location = new Point(475, 12);
+            PicLogo2.Name = "PicLogo2";
+            PicLogo2.Size = new Size(41, 38);
+            PicLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
+            PicLogo2.TabIndex = 13;
+            PicLogo2.TabStop = false;
             // 
             // frmMain
             // 
@@ -239,9 +240,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1342, 786);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
+            Controls.Add(PicLogo2);
+            Controls.Add(PicLogo);
+            Controls.Add(PicArrow);
             Controls.Add(lblMaghsad);
             Controls.Add(lblmabda);
             Controls.Add(btnMabda);
@@ -261,9 +262,9 @@
             Load += frmMain_Load;
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).EndInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicArrow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicLogo2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -280,8 +281,8 @@
         private Button btnMabda;
         private Label lblmabda;
         private Label lblMaghsad;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox PicArrow;
+        private PictureBox PicLogo;
+        private PictureBox PicLogo2;
     }
 }
