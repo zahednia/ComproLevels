@@ -3,10 +3,21 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
+	  <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+	  		  <NoWarn>$(NoWarn);CS8600;CS8602;CS8603;CS8618;CS8625;CS8629</NoWarn>	    43	  	  		  
+	  		  <NoWarn>$(NoWarn);CS8600;CS8602;CS8603;CS8618;CS8625;CS8629</NoWarn>CS8600CS8600<NoWarn>1073</NoWarn>46048
     <ApplicationIcon>Arm-White.ico</ApplicationIcon>
+    <Copyright>Kourosh Zahednia</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>8604;8602;8600</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>8604;8602;8600</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
