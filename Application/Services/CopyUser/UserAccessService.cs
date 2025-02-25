@@ -1,19 +1,18 @@
-﻿using System;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Application.DataBase;
 using Application.Services.CopyUser;
 using Application.DTO;
 
 public class UserAccessService : IUserAccessService
 {
-    private readonly IDatabaseContext _context;
 
+
+    private readonly IDatabaseContext _context;
     public UserAccessService(IDatabaseContext context)
     {
         _context = context;
     }
+
 
     public ResultDto CopyUserAccess(int sourceUserId, int targetUserId , bool copyOnlyView = false)
     {
@@ -25,16 +24,15 @@ public class UserAccessService : IUserAccessService
             return new ResultDto
             {
                 IsSuccess = false,
-                Message = $"کاربری انتخاب نشد . لطفا برای انتخاب کاربر برروی آن ها دابل کلیک فرماییید",
+                Message = $"کاربری انتخاب نشد :( لطفا برای انتخاب کاربر برروی آن ها دابل کلیک فرماییید",
             };
         }
-
         else if (sourceUser == targetUser)
         {
             return new ResultDto
             {
                 IsSuccess = false,
-                Message = $"نمیتونی دسترسی یکسان رو کپی کنی",
+                Message = $":) نمیتونی دسترسی افراد یکسان رو کپی کنی",
             };
         }
 
@@ -53,26 +51,25 @@ public class UserAccessService : IUserAccessService
         }
 
         // حذف دسترسی‌های قبلی کاربر مقصد
-        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId);
-        _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
-       
+            var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId);
+            _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
+
         // کپی کردن دسترسی‌ها
         var newAccessLevels = sourceAccessLevels.Select(a => new GeneralUserAccessLevel
         {
             User_Id = targetUserId,
             AccessLevel_Id= a.AccessLevel_Id,
-            AccessView = a.AccessView,
+            AccessView = a.AccessView, //view only
             AccessNew = copyOnlyView ? false : a.AccessView,
             AccessEdit = copyOnlyView ? false : a.AccessEdit,
             AccessDelete = copyOnlyView ? false : a.AccessDelete,
             AccessFirstConfirm = copyOnlyView ? false : a.AccessFirstConfirm,
             AccessSecondConfirm = copyOnlyView ? false : a.AccessSecondConfirm,
-            AccessPrint = a.AccessPrint,
-
+            AccessPrint = a.AccessPrint, //view only
         }).ToList();
-
         _context.GeneralUserAccessLevel.AddRange(newAccessLevels);
         _context.SaveChanges();
+
 
         return new ResultDto
         {

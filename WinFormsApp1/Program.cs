@@ -1,10 +1,6 @@
 ﻿using Application.DataBase;
 using Persistence.Context;
-using Application.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Windows.Forms;
 using Application.Services.CopyUser;
 using ApplicationCompro.Services.GetListDG;
 using ApplicationCompro.Services.ShowName;
@@ -13,7 +9,7 @@ namespace WinFormsApp1
 {
     static class Program
     {
-        public static IServiceProvider? ServiceProvider { get; set; }
+        public static IServiceProvider ServiceProvider { get; set; }
         static void ConfigureServices()
         {
             var services = new ServiceCollection();
@@ -25,7 +21,6 @@ namespace WinFormsApp1
             services.AddScoped<IGetListServiceMaghsad, GetListServiceMaghsad>();
             ServiceProvider = services.BuildServiceProvider();
         }
-
         [STAThread]
         static void Main()
         {
@@ -35,7 +30,6 @@ namespace WinFormsApp1
             var serviceGetList = (IGetListService)ServiceProvider.GetService(typeof(IGetListService));
             var serviceGetListMaghsad = (IGetListServiceMaghsad)ServiceProvider.GetService(typeof(IGetListServiceMaghsad));
             System.Windows.Forms.Application.Run(new frmMain(User , serviceGetList , serviceGetListMaghsad, serviceAdd ));
-
         }
     }
 }

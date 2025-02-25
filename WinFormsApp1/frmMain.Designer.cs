@@ -45,23 +45,21 @@
             lblMaghsad = new Label();
             PicArrow = new PictureBox();
             PicLogo = new PictureBox();
-            PicLogo2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicArrow).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PicLogo2).BeginInit();
             SuspendLayout();
             // 
             // lblName
             // 
             lblName.AutoSize = true;
             lblName.BackColor = SystemColors.Control;
-            lblName.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblName.Location = new Point(522, 20);
+            lblName.Font = new Font("Tahoma", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblName.Location = new Point(493, 21);
             lblName.Name = "lblName";
             lblName.RightToLeft = RightToLeft.Yes;
-            lblName.Size = new Size(243, 23);
+            lblName.Size = new Size(345, 33);
             lblName.TabIndex = 0;
             lblName.Text = "انتقال دسترسی در کامپرو";
             lblName.TextAlign = ContentAlignment.TopCenter;
@@ -69,13 +67,13 @@
             // btnDone
             // 
             btnDone.BackColor = Color.FromArgb(192, 255, 192);
-            btnDone.Font = new Font("Tahoma", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDone.Font = new Font("Tahoma", 27.75F, FontStyle.Bold, GraphicsUnit.Point);
             btnDone.ForeColor = Color.Black;
-            btnDone.Location = new Point(230, 674);
+            btnDone.Location = new Point(385, 674);
             btnDone.Name = "btnDone";
-            btnDone.Size = new Size(855, 78);
-            btnDone.TabIndex = 5;
-            btnDone.Text = "DONE";
+            btnDone.Size = new Size(551, 78);
+            btnDone.TabIndex = 3;
+            btnDone.Text = "TRANSFER";
             btnDone.UseVisualStyleBackColor = false;
             btnDone.Click += btnDone_Click;
             // 
@@ -186,20 +184,21 @@
             // lblmabda
             // 
             lblmabda.AutoSize = true;
-            lblmabda.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblmabda.Location = new Point(199, 83);
+            lblmabda.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lblmabda.Location = new Point(211, 77);
             lblmabda.Name = "lblmabda";
-            lblmabda.Size = new Size(45, 23);
+            lblmabda.Size = new Size(57, 29);
             lblmabda.TabIndex = 9;
             lblmabda.Text = "مبدا";
+            lblmabda.Click += lblmabda_Click;
             // 
             // lblMaghsad
             // 
             lblMaghsad.AutoSize = true;
-            lblMaghsad.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblMaghsad.Location = new Point(750, 83);
+            lblMaghsad.Font = new Font("Tahoma", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            lblMaghsad.Location = new Point(757, 77);
             lblMaghsad.Name = "lblMaghsad";
-            lblMaghsad.Size = new Size(62, 23);
+            lblMaghsad.Size = new Size(79, 29);
             lblMaghsad.TabIndex = 10;
             lblMaghsad.Text = "مقصد";
             lblMaghsad.Click += lblMaghsad_Click;
@@ -217,22 +216,12 @@
             // PicLogo
             // 
             PicLogo.Image = Endpoint.Properties.Resources.Only_Arm_Reverse;
-            PicLogo.Location = new Point(771, 12);
+            PicLogo.Location = new Point(844, 21);
             PicLogo.Name = "PicLogo";
-            PicLogo.Size = new Size(41, 38);
+            PicLogo.Size = new Size(34, 33);
             PicLogo.SizeMode = PictureBoxSizeMode.StretchImage;
             PicLogo.TabIndex = 12;
             PicLogo.TabStop = false;
-            // 
-            // PicLogo2
-            // 
-            PicLogo2.Image = Endpoint.Properties.Resources.Only_Arm_Reverse;
-            PicLogo2.Location = new Point(475, 12);
-            PicLogo2.Name = "PicLogo2";
-            PicLogo2.Size = new Size(41, 38);
-            PicLogo2.SizeMode = PictureBoxSizeMode.StretchImage;
-            PicLogo2.TabIndex = 13;
-            PicLogo2.TabStop = false;
             // 
             // frmMain
             // 
@@ -240,7 +229,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1342, 786);
-            Controls.Add(PicLogo2);
             Controls.Add(PicLogo);
             Controls.Add(PicArrow);
             Controls.Add(lblMaghsad);
@@ -264,7 +252,6 @@
             ((System.ComponentModel.ISupportInitialize)DGMabda).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicArrow).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PicLogo2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -283,6 +270,5 @@
         private Label lblMaghsad;
         private PictureBox PicArrow;
         private PictureBox PicLogo;
-        private PictureBox PicLogo2;
     }
 }

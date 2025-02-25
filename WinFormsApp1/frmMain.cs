@@ -8,14 +8,13 @@ namespace WinFormsApp1
 {
     public partial class frmMain : Form
     {
+
         private readonly IUserAccessService userAccess;
         private readonly IGetListService getMabda;
         private readonly IGetListServiceMaghsad getMaghsad;
         private readonly IShowName showName;
-        private readonly int Code;
         private int sourceUserId;
         private int targetUserId;
-
         public frmMain(IUserAccessService userAccess,
             IGetListService getMabda, IGetListServiceMaghsad getMaghsad, IShowName showName)
         {
@@ -26,20 +25,15 @@ namespace WinFormsApp1
             this.showName = showName;
         }
 
+
         private void frmMain_Load(object sender, EventArgs e)
         {
-
-
             this.Cursor = Cursors.WaitCursor;
-
             var Mabda = getMabda.Execute();
             var Maghsad = getMaghsad.ExecuteMaghsad();
-
             SettingGridview(Mabda);
             SettingGridviewMaghsad(Maghsad);
-
             this.Cursor = Cursors.Default;
-
             this.FormBorderStyle = FormBorderStyle.FixedSingle; // یا FixedDialog و ...
             this.MaximizeBox = false;
         }
@@ -89,9 +83,7 @@ namespace WinFormsApp1
 
         private void DGMabda_DoubleClick(object sender, EventArgs e)
         {
-
             sourceUserId = int.Parse(DGMabda.CurrentRow.Cells[0].Value.ToString());
-
             var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
             var Code = int.Parse(DGMabda.CurrentRow.Cells[2].Value.ToString());
             var Showname = showName.ShowName(new ShowNameDTO(), Code);
@@ -100,8 +92,8 @@ namespace WinFormsApp1
                 MessageBox.Show(Showname.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             lblmabda.Text = Showname.Data.FullNameE;
+            txtMabda.Text = Showname.Data.FullNameE + " | " + Showname.Data.Code;
             lblmabda.BackColor = Color.Green;
         }
 
@@ -109,7 +101,6 @@ namespace WinFormsApp1
         private void DGMaghsad_DoubleClick(object sender, EventArgs e)
         {
             targetUserId = int.Parse(DGMaghsad.CurrentRow.Cells[0].Value.ToString());
-
             var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
             var Code = int.Parse(DGMaghsad.CurrentRow.Cells[2].Value.ToString());
             var Showname = showName.ShowName(new ShowNameDTO(), Code);
@@ -118,16 +109,15 @@ namespace WinFormsApp1
                 MessageBox.Show(Showname.Message, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             lblMaghsad.Text = Showname.Data.FullNameE;
-            lblMaghsad.BackColor = Color.Green;
+            txtMaghsad.Text = Showname.Data.FullNameE + " | " + Showname.Data.Code;
+            txtMaghsad.BackColor = Color.Green;
         }
 
         private void btnDone_Click(object sender, EventArgs e)
         {
             var mabda = DGMabda.CurrentRow.Cells[1].Value.ToString();
             var maghsad = DGMaghsad.CurrentRow.Cells[1].Value.ToString();
-
             DialogResult dialogResult = MessageBox.Show($"به صورت کامل کپی شود ؟ {maghsad} به {mabda} آیا میخوای دسترسی کاربر",
                 "کپی کردن دسترسی",
                 MessageBoxButtons.YesNoCancel,
@@ -143,10 +133,7 @@ namespace WinFormsApp1
                 //view only
                 var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: true);
                 MessageBox.Show(result.Message);
-
             }
-
-
         }
 
         private void txtMabda_KeyDown(object sender, KeyEventArgs e)
@@ -192,6 +179,11 @@ namespace WinFormsApp1
         }
 
         private void lblMaghsad_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblmabda_Click(object sender, EventArgs e)
         {
 
         }
