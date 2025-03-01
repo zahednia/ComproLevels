@@ -126,6 +126,7 @@ namespace WinFormsApp1
                 MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
+                MessageBox.Show("Please , Wait ....","WAIT", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try
                 {
                     var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: false);
@@ -142,6 +143,7 @@ namespace WinFormsApp1
             else if (dialogResult == DialogResult.No)
             {
                 //view only
+                MessageBox.Show("Please , Wait ....", "WAIT", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try
                 {
                     var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: true);
