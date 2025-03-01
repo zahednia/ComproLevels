@@ -24,6 +24,8 @@ namespace WinFormsApp1
             this.getMabda = getMabda;
             this.getMaghsad = getMaghsad;
             this.showName = showName;
+
+            lblload.Visible = false; // مخفی کردن پنل لودینگ در ابتدا
         }
 
 
@@ -115,7 +117,7 @@ namespace WinFormsApp1
             lblMaghsad.BackColor = Color.Green;
         }
 
-        private void btnDone_Click(object sender, EventArgs e)
+        private async void btnDone_Click(object sender, EventArgs e)
         {
             var mabda = DGMabda.CurrentRow.Cells[1].Value.ToString();
             var maghsad = DGMaghsad.CurrentRow.Cells[1].Value.ToString();
@@ -126,27 +128,32 @@ namespace WinFormsApp1
                 MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
-                MessageBox.Show("Please , Wait ....","WAIT", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try
                 {
+                    lblload.Visible = true;
+                    await Task.Delay(1000);
                     var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: false);
+                    lblload.Visible = false;
                     MessageBox.Show(result.Message);
-                    BtnRestore.Visible = true;
+
+
                 }
                 catch (Exception)
                 {
 
-                    MessageBox.Show("DataBase Connection lOST" ,"ERROR" ,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("DataBase Connection lOST", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             else if (dialogResult == DialogResult.No)
             {
                 //view only
-                MessageBox.Show("Please , Wait ....", "WAIT", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try
                 {
+                    lblload.Visible = true;
+                    await Task.Delay(1000);
                     var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: true);
+                    lblload.Visible = false;
                     MessageBox.Show(result.Message);
                     BtnRestore.Visible = true;
                 }
@@ -211,7 +218,7 @@ namespace WinFormsApp1
 
         }
 
-        private void BtnRestore_Click(object sender, EventArgs e)
+        private async void BtnRestore_Click(object sender, EventArgs e)
         {
             var maghsad = DGMaghsad.CurrentRow.Cells[1].Value.ToString();
             DialogResult dialogResult = MessageBox.Show($"برگردانده شود ؟ {maghsad} آیا میخای دسترسی قبلی کاربر", "برگردان دسترسی",
@@ -220,7 +227,10 @@ namespace WinFormsApp1
             {
                 try
                 {
+                    lblload.Visible = true;
+                    await Task.Delay(1000);
                     var restoreResult = userAccess.RestorePreviousAccess(targetUserId);
+                    lblload.Visible = false;
                     MessageBox.Show(restoreResult.Message);
                 }
                 catch (Exception)
@@ -234,6 +244,11 @@ namespace WinFormsApp1
         }
 
         private void DGMaghsad_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void lblload_Click(object sender, EventArgs e)
         {
 
         }

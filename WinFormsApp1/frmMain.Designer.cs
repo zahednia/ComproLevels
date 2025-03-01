@@ -47,6 +47,7 @@
             PicLogo = new PictureBox();
             label1 = new Label();
             BtnRestore = new Button();
+            lblload = new Label();
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicArrow).BeginInit();
@@ -249,12 +250,26 @@
             BtnRestore.Visible = false;
             BtnRestore.Click += BtnRestore_Click;
             // 
+            // lblload
+            // 
+            lblload.AutoSize = true;
+            lblload.BackColor = Color.Transparent;
+            lblload.Font = new Font("Tahoma", 36F, FontStyle.Bold, GraphicsUnit.Point);
+            lblload.ForeColor = SystemColors.ActiveBorder;
+            lblload.Location = new Point(530, 274);
+            lblload.Name = "lblload";
+            lblload.Size = new Size(275, 58);
+            lblload.TabIndex = 16;
+            lblload.Text = "Loading ...";
+            lblload.Click += lblload_Click;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1336, 786);
+            Controls.Add(lblload);
             Controls.Add(BtnRestore);
             Controls.Add(label1);
             Controls.Add(PicLogo);
@@ -300,5 +315,6 @@
         private PictureBox PicLogo;
         private Label label1;
         private Button BtnRestore;
+        private Label lblload;
     }
 }
