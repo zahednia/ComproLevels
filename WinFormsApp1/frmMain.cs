@@ -135,12 +135,10 @@ namespace WinFormsApp1
                     var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: false);
                     lblload.Visible = false;
                     MessageBox.Show(result.Message);
-
-
+                    BtnRestore.Visible = true;
                 }
                 catch (Exception)
                 {
-
                     MessageBox.Show("DataBase Connection lOST", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -159,7 +157,6 @@ namespace WinFormsApp1
                 }
                 catch (Exception)
                 {
-
                     MessageBox.Show("DataBase Connection lOST", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
@@ -232,15 +229,14 @@ namespace WinFormsApp1
                     var restoreResult = userAccess.RestorePreviousAccess(targetUserId);
                     lblload.Visible = false;
                     MessageBox.Show(restoreResult.Message);
+                    BtnRestore.Visible = false;
                 }
                 catch (Exception)
                 {
-
                     MessageBox.Show("DataBase Connection lOST", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
-            BtnRestore.Visible = false;
         }
 
         private void DGMaghsad_CellContentClick(object sender, DataGridViewCellEventArgs e)
