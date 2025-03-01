@@ -111,7 +111,7 @@ namespace WinFormsApp1
             }
             lblMaghsad.Text = Showname.Data.FullNameE;
             txtMaghsad.Text = Showname.Data.FullNameE + " | " + Showname.Data.Code;
-            txtMaghsad.BackColor = Color.Green;
+            lblMaghsad.BackColor = Color.Green;
         }
 
         private void btnDone_Click(object sender, EventArgs e)
