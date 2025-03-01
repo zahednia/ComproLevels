@@ -108,6 +108,7 @@
             DGMaghsad.RowTemplate.Height = 25;
             DGMaghsad.Size = new Size(394, 469);
             DGMaghsad.TabIndex = 4;
+            DGMaghsad.CellContentClick += DGMaghsad_CellContentClick;
             DGMaghsad.DoubleClick += DGMaghsad_DoubleClick;
             // 
             // DGMabda
@@ -245,6 +246,7 @@
             BtnRestore.TabIndex = 14;
             BtnRestore.Text = "Restore";
             BtnRestore.UseVisualStyleBackColor = false;
+            BtnRestore.Visible = false;
             BtnRestore.Click += BtnRestore_Click;
             // 
             // frmMain

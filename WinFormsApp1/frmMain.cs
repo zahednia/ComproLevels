@@ -126,14 +126,34 @@ namespace WinFormsApp1
                 MessageBoxDefaultButton.Button2);
             if (dialogResult == DialogResult.Yes)
             {
-                var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: false);
-                MessageBox.Show(result.Message);
+                try
+                {
+                    var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: false);
+                    MessageBox.Show(result.Message);
+                    BtnRestore.Visible = true;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("DataBase Connection lOST" ,"ERROR" ,MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+
             }
             else if (dialogResult == DialogResult.No)
             {
                 //view only
-                var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: true);
-                MessageBox.Show(result.Message);
+                try
+                {
+                    var result = userAccess.CopyUserAccess(sourceUserId, targetUserId, copyOnlyView: true);
+                    MessageBox.Show(result.Message);
+                    BtnRestore.Visible = true;
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("DataBase Connection lOST", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
         }
 
@@ -192,13 +212,28 @@ namespace WinFormsApp1
         private void BtnRestore_Click(object sender, EventArgs e)
         {
             var maghsad = DGMaghsad.CurrentRow.Cells[1].Value.ToString();
-            DialogResult dialogResult = MessageBox.Show($"برگردانده شود ؟ {maghsad} آیا میخای دسترسی قبلی کاربر" , "برگردان دسترسی",
+            DialogResult dialogResult = MessageBox.Show($"برگردانده شود ؟ {maghsad} آیا میخای دسترسی قبلی کاربر", "برگردان دسترسی",
                 MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                var restoreResult = userAccess.RestorePreviousAccess(targetUserId);
-                MessageBox.Show(restoreResult.Message);
+                try
+                {
+                    var restoreResult = userAccess.RestorePreviousAccess(targetUserId);
+                    MessageBox.Show(restoreResult.Message);
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("DataBase Connection lOST", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
+            BtnRestore.Visible = false;
+        }
+
+        private void DGMaghsad_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
