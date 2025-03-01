@@ -46,6 +46,7 @@
             PicArrow = new PictureBox();
             PicLogo = new PictureBox();
             label1 = new Label();
+            BtnRestore = new Button();
             ((System.ComponentModel.ISupportInitialize)DGMaghsad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DGMabda).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicArrow).BeginInit();
@@ -234,12 +235,25 @@
             label1.TabIndex = 13;
             label1.Text = "Copyright © 2025 Asia Classification. All rights reserved | Create By Kourosh Zahednia\r\n";
             // 
+            // BtnRestore
+            // 
+            BtnRestore.BackColor = Color.FromArgb(255, 255, 192);
+            BtnRestore.Font = new Font("Tahoma", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnRestore.Location = new Point(942, 683);
+            BtnRestore.Name = "BtnRestore";
+            BtnRestore.Size = new Size(175, 59);
+            BtnRestore.TabIndex = 14;
+            BtnRestore.Text = "Restore";
+            BtnRestore.UseVisualStyleBackColor = false;
+            BtnRestore.Click += BtnRestore_Click;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1336, 786);
+            Controls.Add(BtnRestore);
             Controls.Add(label1);
             Controls.Add(PicLogo);
             Controls.Add(PicArrow);
@@ -283,5 +297,6 @@
         private PictureBox PicArrow;
         private PictureBox PicLogo;
         private Label label1;
+        private Button BtnRestore;
     }
 }

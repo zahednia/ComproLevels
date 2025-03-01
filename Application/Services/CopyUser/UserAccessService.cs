@@ -5,7 +5,7 @@ using Application.DTO;
 
 public class UserAccessService : IUserAccessService
 {
-
+    private static Dictionary<int, List<GeneralUserAccessLevel>> TempAccessStorage = new Dictionary<int, List<GeneralUserAccessLevel>>();
 
     private readonly IDatabaseContext _context;
     public UserAccessService(IDatabaseContext context)
@@ -50,8 +50,27 @@ public class UserAccessService : IUserAccessService
             };
         }
 
+        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId).ToList();
+
+        if (targetAccessLevels.Any())
+        {
+            TempAccessStorage[targetUserId] = targetAccessLevels.Select(a => new GeneralUserAccessLevel
+            {
+                User_Id = a.User_Id,
+                AccessLevel_Id = a.AccessLevel_Id,
+                AccessView = a.AccessView,
+                AccessNew = a.AccessNew,
+                AccessEdit = a.AccessEdit,
+                AccessDelete = a.AccessDelete,
+                AccessFirstConfirm = a.AccessFirstConfirm,
+                AccessSecondConfirm = a.AccessSecondConfirm,
+                AccessPrint = a.AccessPrint,
+            }).ToList();
+        }
+
         // حذف دسترسی‌های قبلی کاربر مقصد
-            var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId);
+  
+            
             _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
 
         // کپی کردن دسترسی‌ها
@@ -77,6 +96,32 @@ public class UserAccessService : IUserAccessService
             Message = $"انتقال یافت  {targetUser.UserName}  به   {sourceUser.UserName} دسترسی",
         };
     }
+
+    public ResultDto RestorePreviousAccess(int targetUserId)
+    {
+        if (!TempAccessStorage.ContainsKey(targetUserId))
+            return new ResultDto { IsSuccess = false, Message = "هیچ دسترسی قبلی برای این کاربر ذخیره نشده است!" };
+
+        // حذف دسترسی‌های فعلی کاربر مقصد
+        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId);
+        _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
+        _context.SaveChanges();
+
+        // بازیابی دسترسی‌های قبلی از حافظه موقت
+        var previousAccessLevels = TempAccessStorage[targetUserId];
+        _context.GeneralUserAccessLevel.AddRange(previousAccessLevels);
+        _context.SaveChanges();
+
+        // حذف اطلاعات موقت بعد از بازیابی
+        TempAccessStorage.Remove(targetUserId);
+
+        return new ResultDto
+        {
+            IsSuccess = true,
+            Message = "دسترسی‌های قبلی با موفقیت بازگردانی شد"
+        };
+    }
+
 
 
 }

@@ -1,4 +1,5 @@
-﻿using Application.Services.CopyUser;
+﻿using Application.DTO;
+using Application.Services.CopyUser;
 using ApplicationCompro.Services.GetListDG;
 using ApplicationCompro.Services.ShowName;
 
@@ -46,7 +47,7 @@ namespace WinFormsApp1
             DGMabda.Columns[2].HeaderText = "پرسنلی";
             DGMabda.Columns[0].Width = 40;
             DGMabda.Columns[1].Width = 229;
-            DGMabda.Columns[2].Width = 80;
+            DGMabda.Columns[2].Width = 66;
         }
 
         private void SettingGridviewMaghsad(List<GetListDGMaghsadDto> Maghsad)
@@ -57,7 +58,7 @@ namespace WinFormsApp1
             DGMaghsad.Columns[2].HeaderText = "پرسنلی";
             DGMaghsad.Columns[0].Width = 40;
             DGMaghsad.Columns[1].Width = 229;
-            DGMaghsad.Columns[2].Width = 80;
+            DGMaghsad.Columns[2].Width = 66;
         }
 
         private void DGMabda_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -186,6 +187,18 @@ namespace WinFormsApp1
         private void lblmabda_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnRestore_Click(object sender, EventArgs e)
+        {
+            var maghsad = DGMaghsad.CurrentRow.Cells[1].Value.ToString();
+            DialogResult dialogResult = MessageBox.Show($"برگردانده شود ؟ {maghsad} آیا میخای دسترسی قبلی کاربر" , "برگردان دسترسی",
+                MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                var restoreResult = userAccess.RestorePreviousAccess(targetUserId);
+                MessageBox.Show(restoreResult.Message);
+            }
         }
     }
 }
