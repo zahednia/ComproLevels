@@ -1,88 +1,904 @@
-﻿[*.cs]
+﻿  <!--/*-----------------------------------------------*\
+	  #              Kourosh Zahednia               #
+	\*-----------------------------------------------*/
+	/**------------------------------------------------
+	          Creator Telegram ID : @KouroshCe 
+	 -----------------------------------------------**/
+	/*-----------------------------------------------*\
+	  #              Kourosh Zahednia                #
+	\*-----------------------------------------------*/-->
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
-# CS8602: Dereference of a possibly null reference.
-dotnet_diagnostic.CS8602.severity = warning
-csharp_indent_labels = one_less_than_current
-csharp_space_around_binary_operators = before_and_after
-csharp_using_directive_placement = outside_namespace:silent
-csharp_prefer_simple_using_statement = true:suggestion
-csharp_prefer_braces = true:silent
-csharp_style_namespace_declarations = block_scoped:silent
-csharp_style_prefer_method_group_conversion = true:silent
-csharp_style_prefer_top_level_statements = true:silent
-csharp_style_prefer_primary_constructors = true:suggestion
-csharp_prefer_system_threading_lock = true:suggestion
-csharp_style_expression_bodied_methods = false:silent
-csharp_style_expression_bodied_constructors = false:silent
-csharp_style_expression_bodied_operators = false:silent
-csharp_style_expression_bodied_properties = true:silent
-csharp_style_expression_bodied_indexers = true:silent
-csharp_style_expression_bodied_accessors = true:silent
-csharp_style_expression_bodied_lambdas = true:silent
-csharp_style_expression_bodied_local_functions = false:silent
+<head>
+  	<meta charset="UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta property="og:title" content="Kourosh Zahednia | کورش زاهدنیا">
+  	<meta prefix="og: http://ogp.me/ns#" property="og:type" content="website" />
+  	<meta prefix="og: http://ogp.me/ns#" property="og:title" content="Kourosh Zahednia | کورش زاهدنیا" />
+  	<meta prefix="og: http://ogp.me/ns#" property="og:description" content="من یک برنامه نویس و طراح سایت در تهران هستم و درحال کار در یک شرکت هستم من از تبدیل مسائل پیچیده به طرح های ساده لذت میبرم"/>
+ 	<meta prefix="og: http://ogp.me/ns#" property="og:image" content="./assets/images/webs.jpg" />
+ 	<meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://zahednia.com/" />
+ 	<meta property="og:image:width" content="1200"/>
+ 	<meta property="og:image:height" content="630"/>
+	<title>Kourosh Zahednia | کورش زاهدنیا</title>
+	<meta name="title" content="Kourosh Zahednia | کورش زاهدنیا" />
+	<meta name="description" content="من کورش زاهدنیا یک برنامه نویس و طراح سایت هستم من از تبدیل مسائل پیچیده به طرح های ساده لذت میبرم " />
+	<meta property="twitter:card" content="summary_large_image" />
+	<meta property="twitter:url" content="https://zahednia.com/" />
+	<meta property="twitter:title" content="Kourosh Zahednia | کورش زاهدنیا" />
+	<meta property="twitter:description" content="سلام من کورشم 19 سالمه و برنامه نویسم و خوشحال میشم از سایتم دیدن کنید" />
+	<meta property="twitter:image" content="./assets/images/webs.jpg" />
+	<meta name="robots" content= "index, follow">
+	<meta name="Keywords" content="کورش زاهدنیا">
+	<meta name="Keywords" content="کوروش زاهدنیا">
+	<meta name="Keywords" content="زاهدنیا">
+	<meta name="Keywords" content="Kourosh">
+	<meta name="Keywords" content="Zahednia">
+	<meta name="Keywords" content="Korosh">
+	<meta name="Keywords" content="Zahdnia">
+	<meta name="Keywords" content="Koorosh">
+	<meta name="Keywords" content="Zahednya">
+	<meta name="Keywords" content="Creat1ve">
+	<meta name="Keywords" content="Creat1vo">
+	<meta name="Keywords" content="Creat1ve">
+	<meta name="Keywords" content="کورش">
+	<meta name="Keywords" content="کوروش">
+	<meta name="copyright" content="Kourosh Zahednia">
+	<meta name="og:site_name" content="Kourosh Zahednia | کورش زاهدنیا">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="Kourosh">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta property="og:locale" content="fa_IR">
+  <!--
+    - لوگو
+  -->
+  <link rel="shortcut icon" href="my-ava.png" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="144x144" href="./assets/images/my-ava.png">
+<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/my-ava.png">
+<link rel="icon" type="image/png" sizes="16x16" href="./assets/images/my-ava.png">
+<link rel="manifest" href="./assets/images/my-ava.png">
+<link rel="mask-icon" href="./assets/images/my-ava.png" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#080808">
 
-[*.{cs,vb}]
-#### Naming styles ####
+  <!--
+    - سی اس اس
+  -->
 
-# Naming rules
+  <link rel="stylesheet" href="./assets/css/style.css">
 
-dotnet_naming_rule.interface_should_be_begins_with_i.severity = suggestion
-dotnet_naming_rule.interface_should_be_begins_with_i.symbols = interface
-dotnet_naming_rule.interface_should_be_begins_with_i.style = begins_with_i
+  <!--
+    - فونت
+  -->
 
-dotnet_naming_rule.types_should_be_pascal_case.severity = suggestion
-dotnet_naming_rule.types_should_be_pascal_case.symbols = types
-dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body style="background-image: url(./assets/images/topography31.svg);background-size: cover;">
 
-dotnet_naming_rule.non_field_members_should_be_pascal_case.severity = suggestion
-dotnet_naming_rule.non_field_members_should_be_pascal_case.symbols = non_field_members
-dotnet_naming_rule.non_field_members_should_be_pascal_case.style = pascal_case
+  <!--
+    - #اصلی
+  -->
 
-# Symbol specifications
+  <main>
 
-dotnet_naming_symbols.interface.applicable_kinds = interface
-dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.interface.required_modifiers = 
+    <!--
+      - #بثلی
+    -->
 
-dotnet_naming_symbols.types.applicable_kinds = class, struct, interface, enum
-dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.types.required_modifiers = 
+    <aside class="sidebar" data-sidebar>
 
-dotnet_naming_symbols.non_field_members.applicable_kinds = property, event, method
-dotnet_naming_symbols.non_field_members.applicable_accessibilities = public, internal, private, protected, protected_internal, private_protected
-dotnet_naming_symbols.non_field_members.required_modifiers = 
+      <div class="sidebar-info">
 
-# Naming styles
+        <figure class="avatar-box">
+          <img src="./assets/images/my-ava.ico" alt="Kourosh Zahednia" width="80">
+        </figure>
 
-dotnet_naming_style.begins_with_i.required_prefix = I
-dotnet_naming_style.begins_with_i.required_suffix = 
-dotnet_naming_style.begins_with_i.word_separator = 
-dotnet_naming_style.begins_with_i.capitalization = pascal_case
+        <div class="info-content" >
+          <h1 class="name" title="Kourosh Zahednia" style="font-family:   'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ">کورش زاهدنیا</h1>
 
-dotnet_naming_style.pascal_case.required_prefix = 
-dotnet_naming_style.pascal_case.required_suffix = 
-dotnet_naming_style.pascal_case.word_separator = 
-dotnet_naming_style.pascal_case.capitalization = pascal_case
+          <p class="title" >Web developer</p>
+        </div>
 
-dotnet_naming_style.pascal_case.required_prefix = 
-dotnet_naming_style.pascal_case.required_suffix = 
-dotnet_naming_style.pascal_case.word_separator = 
-dotnet_naming_style.pascal_case.capitalization = pascal_case
-dotnet_style_operator_placement_when_wrapping = beginning_of_line
-tab_width = 4
-indent_size = 4
-end_of_line = crlf
-dotnet_style_coalesce_expression = true:suggestion
-dotnet_style_null_propagation = true:suggestion
-dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
-dotnet_style_prefer_auto_properties = true:silent
-dotnet_style_object_initializer = true:suggestion
-dotnet_style_collection_initializer = true:suggestion
-dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
-dotnet_style_prefer_conditional_expression_over_assignment = true:silent
-dotnet_style_prefer_conditional_expression_over_return = true:silent
-dotnet_style_explicit_tuple_names = true:suggestion
-dotnet_style_prefer_inferred_tuple_names = true:suggestion
-dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
-dotnet_style_prefer_compound_assignment = true:suggestion
-dotnet_style_prefer_simplified_interpolation = true:suggestion
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:info@zahednia.com" class="contact-link">info@zahednia.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">March 10 , 2005</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Tehran , IRAN</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://github.com/zahednia" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/kourosh-zahednia/" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://instagram.com/creat1vo" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+			
+          <li class="social-item">
+            <a href="https://discord.gg/ASu5W3pRAC" class="social-link">
+              <ion-icon name="logo-discord"></ion-icon>
+            </a>
+          </li>
+			
+		<li class="social-item">
+            <a href="https://steamcommunity.com/id/Creat1vo/" class="social-link">
+              <ion-icon name="logo-steam"></ion-icon>
+            </a>
+          </li>
+			
+        </ul>
+
+      </div>
+
+    </aside>
+
+    <!--
+      - #محتوا اضلی
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #نوبار
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">درباره ما</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">رزومه</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">نمونه کار</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">ارتباط با ما</button>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+        - #درباره من
+      -->
+
+      <article class="about  active" data-page="درباره ما" style="backdrop-filter: blur(4%)" >
+
+        <header>
+          <h2 class="h2 article-title" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">درباره من</h2>
+        </header>
+
+        <section class="about-text" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: right;">
+          <p>
+           . من کورش زاهدنیا هستم متولد 20 اسفند درحال حاضر برنامه نویس بک اند هستم زبان برنامه نویسی مورد علاقم سی شارپ هست و علاقه مند به یادگیری وتجربه بیشتر هستم
+          </p>
+
+          <p>
+        وظیفه من این است که برنامه هایی بهینه و ساده در این حال جذاب باشد
+          </p>
+        </section>
+
+        <!--
+          - سرویس
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">من چیکار میکنم</h3>
+
+          <ul class="service-list" >
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                <h4 class="h4 service-item-title">ساخت اپریکیشن</h4>
+
+                <p class="service-item-text">
+                  ساخت اپریکیشن های کاربری برای ویندوز
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box" >
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>
+
+              <div class="service-content-box" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                <h4 class="h4 service-item-title">طراحی سایت</h4>
+
+                <p class="service-item-text">
+                  طراحی و توسعه وب سایت های کاربردی و زیبا
+                </p>
+              </div>
+
+            </li>
+          </ul>
+
+        </section>
+
+        <!--
+          - رضایت مندی
+        -->
+
+        <section class="testimonials" dir="rtl" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+          <h3 class="h3 testimonials-title">رضایت مندی</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box" >
+                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title dir="rtl">دانیال رضوانی</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p dir="rtl">
+                    من چندین پروژه با کوروش کار کردم و او بسیار سخت گیر و سخت کوش در کار هستند و خوشحالم که ایشون در
+                    پروژه به من کمک کردن یکی از نکات بسیار جالبی که باعث شد با ایشون کار کنم کد نویسی تمیزی بود که ایشون داشتند
+                    در طراحی حدومرزی نداشتند
+                  </p>
+                </div>
+
+              </div>
+            </li>
+          </ul>
+
+        </section>
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container >
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>دانیال رضوانی</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                    من چندین پروژه با کوروش کار کردم و او بسیار سخت گیر و سخت کوش در کار هستند و خوشحالم که ایشون در
+                    پروژه به من کمک کردن یکی از نکات بسیار جالبی که باعث شد با ایشون کار کنم کد نویسی تمیزی بود که ایشون داشتند
+                    در طراحی حدومرزی نداشتند در پروژه بسیار همکاری تیمی داشتند
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!--
+          - clients
+        -->
+
+        <section class="clients" dir="rtl" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+          <h3 class="h3 clients-title">مشتریان</h3>
+
+          <ul class="clients-list has-scrollbar">
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-1-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-2-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-3-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-4-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-5-color.png" alt="client logo">
+              </a>
+            </li>
+
+            <li class="clients-item">
+              <a href="#">
+                <img src="./assets/images/logo-6-color.png" alt="client logo">
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #رزومه
+      -->
+
+      <article class="resume" data-page="رزومه" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+        <header>
+          <h2 class="h2 article-title">رزومه</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="school-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">تحصیلات</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">طراحی سایت و توسعه</h4>
+
+              <span>1398 - 1401</span>
+
+              <p class="timeline-text">
+                دوره های طراحی سایت و توسعه سایت را در مجتمع فنی تهران گذراندم
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">دانشگاه آزاد</h4>
+
+              <span>1402 - اکنون</span>
+
+              <p class="timeline-text">
+                دانشجو رشته مهندسی کامپیوتر هستم
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="briefcase-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">تجربه</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">شرکت عدالت جوان</h4>
+
+              <span>1398-1399</span>
+
+              <p class="timeline-text">
+                در تیم توسعه شبکه اجتماعی در این شرکت کار میکردم
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">شرکت رده بندی آسیا</h4>
+
+              <span>1402 - اکنون</span>
+
+              <p class="timeline-text">
+                به عنوان کارشناس شبکه و سخت افزار درحال کار هستم
+              </p>
+
+            </li>
+
+
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">مهارت های من</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">C#</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">HTML</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">SQL</h5>
+                <data value="60">60%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 60%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">PHP</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+		
+      <!--
+        - #نمونه کار
+      -->
+		
+      <article class="portfolio" data-page="نمونه کار">
+
+        <header>
+          <h2 class="h2 article-title" >نمونه کار</h2>
+        </header>
+
+        <section class="projects">
+
+          <ul class="filter-list">
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn>All</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web design</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Applications</button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn>Web development</button>
+            </li>
+
+          </ul>
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+
+              <div class="select-value" data-selecct-value>Select category</div>
+
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web design</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Web development</button>
+              </li>
+
+            </ul>
+
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Finance</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Orizon</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Fundo</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Brawlhalla</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DSM.</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MetaSpark</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Summary</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Task Manager</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arrival</h3>
+
+                <p class="project-category">Web development</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="ارتباط با ما">
+
+        <header>
+          <h2 class="h2 article-title" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">ارتباط با ما</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207344.07543691967!2d51.1828477435309!3d35.707740216648176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e00491ff3dcd9%3A0xf0b3697c567024bc!2sTehran%2C%20Tehran%20Province%2C%20Iran!5e0!3m2!1sen!2s!4v1702034134497!5m2!1sen!2s"
+             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </figure>
+			
+              
+        </section>
+              
+              
+        <section class="contact-form" dir="rtl" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+
+          <h3 class="h3 form-title">فرم ارتباط</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="اسم کامل" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="ادرس ایمیل" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="پیام شما" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>فرستادن پیام</span>
+            </button>
+
+          </form>
+          
+        </section>
+       
+      </article>
+		<footer>
+      <h6 style="color :aliceblue ; text-align: center;padding:10px">Copyright © 2025 Kourosh Zahednia . All rights reserved</h6>
+		</footer>
+    </div>
+    
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
+
+  <!--/*-----------------------------------------------*\
+	  #              Kourosh Zahednia               #
+	\*-----------------------------------------------*/
+	/**------------------------------------------------
+	          Creator Telegram ID : @KouroshCe 
+	 -----------------------------------------------**/
+	/*-----------------------------------------------*\
+	  #              Kourosh Zahednia                #
+	\*-----------------------------------------------*/-->

@@ -31,14 +31,14 @@ namespace WinFormsApp1
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
+            Cursor = Cursors.WaitCursor;
             var Mabda = getMabda.Execute();
             var Maghsad = getMaghsad.ExecuteMaghsad();
             SettingGridview(Mabda);
             SettingGridviewMaghsad(Maghsad);
-            this.Cursor = Cursors.Default;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle; // یا FixedDialog و ...
-            this.MaximizeBox = false;
+            Cursor = Cursors.Default;
+            FormBorderStyle = FormBorderStyle.FixedSingle; // یا FixedDialog و ...
+            MaximizeBox = false;
         }
 
         private void SettingGridview(List<GetListDGDto> Mabda)
@@ -70,18 +70,18 @@ namespace WinFormsApp1
 
         private void btnMabda_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
+            Cursor = Cursors.WaitCursor;
             var SearchMabda = getMabda.Execute(txtMabda.Text);
             SettingGridview(SearchMabda);
-            this.Cursor = Cursors.Default;
+            Cursor = Cursors.Default;
         }
 
         private void btnMaghsad_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
+            Cursor = Cursors.WaitCursor;
             var SearchMaghsad = getMaghsad.ExecuteMaghsad(txtMaghsad.Text);
             SettingGridviewMaghsad(SearchMaghsad);
-            this.Cursor = Cursors.Default;
+            Cursor = Cursors.Default;
         }
 
         private void DGMabda_DoubleClick(object sender, EventArgs e)
