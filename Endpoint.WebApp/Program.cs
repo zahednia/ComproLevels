@@ -2,6 +2,7 @@ using Application.DataBase;
 using Application.Services.CopyUser;
 using ApplicationCompro.Services.GetListDG;
 using ApplicationCompro.Services.ShowName;
+using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
 
 namespace Endpoint.WebApp
@@ -21,7 +22,10 @@ namespace Endpoint.WebApp
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
-
+            string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+            //  “—?ﬁ DbContext »« «” ›«œÂ «“ ò«‰ò‘‰ù«” —?‰ê
+            builder.Services.AddDbContext<AcsdataContext>(options =>
+            options.UseSqlServer(connectionString));
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
