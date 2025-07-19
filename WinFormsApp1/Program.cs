@@ -18,7 +18,6 @@ namespace WinFormsApp1
             services.AddDbContext<DatabaseContext>();
             services.AddScoped<IGetListService, GetListService>();
             services.AddScoped<IShowName, ShowNameService>();
-            services.AddScoped<IGetListServiceMaghsad, GetListServiceMaghsad>();
             ServiceProvider = services.BuildServiceProvider();
         }
         [STAThread]
@@ -28,8 +27,7 @@ namespace WinFormsApp1
             var serviceAdd = (IShowName)Program.ServiceProvider.GetService(typeof(IShowName));
             var User = (IUserAccessService)ServiceProvider.GetService(typeof(IUserAccessService));
             var serviceGetList = (IGetListService)ServiceProvider.GetService(typeof(IGetListService));
-            var serviceGetListMaghsad = (IGetListServiceMaghsad)ServiceProvider.GetService(typeof(IGetListServiceMaghsad));
-            System.Windows.Forms.Application.Run(new frmMain(User , serviceGetList , serviceGetListMaghsad, serviceAdd ));
+            System.Windows.Forms.Application.Run(new frmMain(User , serviceGetList , serviceAdd ));
         }
     }
 }

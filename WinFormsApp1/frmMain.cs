@@ -12,17 +12,15 @@ namespace WinFormsApp1
 
         private readonly IUserAccessService userAccess;
         private readonly IGetListService getMabda;
-        private readonly IGetListServiceMaghsad getMaghsad;
         private readonly IShowName showName;
         private int sourceUserId;
         private int targetUserId;
         public frmMain(IUserAccessService userAccess,
-            IGetListService getMabda, IGetListServiceMaghsad getMaghsad, IShowName showName)
+            IGetListService getMabda, IShowName showName)
         {
             InitializeComponent();
             this.userAccess = userAccess;
             this.getMabda = getMabda;
-            this.getMaghsad = getMaghsad;
             this.showName = showName;
 
             lblload.Visible = false; // مخفی کردن پنل لودینگ در ابتدا
@@ -33,7 +31,7 @@ namespace WinFormsApp1
         {
             Cursor = Cursors.WaitCursor;
             var Mabda = getMabda.Execute();
-            var Maghsad = getMaghsad.ExecuteMaghsad();
+            var Maghsad = getMabda.Execute();
             SettingGridview(Mabda);
             SettingGridviewMaghsad(Maghsad);
             Cursor = Cursors.Default;
@@ -52,7 +50,7 @@ namespace WinFormsApp1
             DGMabda.Columns[2].Width = 66;
         }
 
-        private void SettingGridviewMaghsad(List<GetListDGMaghsadDto> Maghsad)
+        private void SettingGridviewMaghsad(List<GetListDGDto> Maghsad)
         {
             DGMaghsad.DataSource = Maghsad;
             DGMaghsad.Columns[0].HeaderText = "ID";
@@ -79,7 +77,7 @@ namespace WinFormsApp1
         private void btnMaghsad_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            var SearchMaghsad = getMaghsad.ExecuteMaghsad(txtMaghsad.Text);
+            var SearchMaghsad = getMabda.Execute(txtMaghsad.Text);
             SettingGridviewMaghsad(SearchMaghsad);
             Cursor = Cursors.Default;
         }

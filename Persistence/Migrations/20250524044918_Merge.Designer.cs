@@ -11,8 +11,8 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20250405075210_Init")]
-    partial class Init
+    [Migration("20250524044918_Merge")]
+    partial class Merge
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

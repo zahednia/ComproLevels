@@ -8,7 +8,7 @@ namespace Persistence.Context
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=ACSData;Integrated Security=True;");
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=ACSData;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
         }
         public DbSet<GeneralUserAccessLevel> GeneralUserAccessLevel { get; set; }
         public DbSet<Users> Users { get; set; }

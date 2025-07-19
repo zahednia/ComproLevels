@@ -1,0 +1,232 @@
+﻿@model AccessViewModel
+@{
+    ViewData["Title"] = "انتقال دسترسی در کامپرو";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        direction: rtl;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .tables-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+        margin: 20px auto;
+        width: 90%;
+    }
+
+    .table-box {
+        width: 350px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        background: #fff;
+    }
+
+    .scroll-table {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ccc;
+        padding: 6px;
+        text-align: center;
+    }
+
+    th {
+        background: #f5f5f5;
+        font-weight: bold;
+    }
+
+    .selected-row {
+        background-color: #c2f0c2 !important;
+    }
+
+    .actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .actions button {
+            padding: 10px 25px;
+            font-size: 18px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+    .btn-transfer {
+        background-color: #4CAF50;
+        color: #fff;
+    }
+
+    .btn-restore {
+        background-color: #FFC107;
+        color: #000;
+    }
+
+    .arrow {
+        font-size: 40px;
+        margin-top: 150px;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="tables-container">
+    <!-- مبدا -->
+    <div class="table-box">
+        <h3>مبدا</h3>
+        <div class="scroll-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>نام کاربری</th>
+                        <th>پرسنلی</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MabdaList)
+                    {
+                        <tr onclick="selectRow('mabda', this, @item.Id)">
+                            <td>@item.Id</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Code</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="arrow">➤</div>
+
+    <!-- مقصد -->
+    <div class="table-box">
+        <h3>مقصد</h3>
+        <div class="scroll-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>نام کاربری</th>
+                        <th>پرسنلی</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MaghsadList)
+                    {
+                        <tr onclick="selectRow('maghsad', this, @item.Id)">
+                            <td>@item.Id</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Code</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="actions">
+    <button class="btn-transfer" onclick="transfer(false)">TRANSFER</button>
+    <button class="btn-restore" onclick="restore()">Restore</button>
+</div>
+
+@section Scripts {
+    <script>
+        var sourceId = 0;
+        var targetId = 0;
+
+        function selectRow(type, rowElement, id) {
+            var userName = $(rowElement).find('td:eq(1)').text();   // ستون نام کاربری
+            var personalCode = $(rowElement).find('td:eq(2)').text(); // ستون پرسنلی
+
+            if (type === 'mabda') {
+                sourceId = id;
+                $('.table-box:first tbody tr').removeClass('selected-row');
+                $(rowElement).addClass('selected-row');
+                Swal.fire('انتخاب شد',
+                    `مبدا با ID ${id} انتخاب شد.<br>نام کاربری: ${userName}<br>پرسنلی: ${personalCode}`,
+                    'info');
+            } else {
+                targetId = id;
+                $('.table-box:last tbody tr').removeClass('selected-row');
+                $(rowElement).addClass('selected-row');
+                Swal.fire('انتخاب شد',
+                    `مقصد با ID ${id} انتخاب شد.<br>نام کاربری: ${userName}<br>پرسنلی: ${personalCode}`,
+                    'info');
+            }
+        }
+
+
+        function transfer(copyOnlyView) {
+            if (sourceId === 0 || targetId === 0) {
+                Swal.fire('خطا', 'ابتدا یک مبدا و یک مقصد انتخاب کنید.', 'error');
+                return;
+            }
+            Swal.fire({
+                title: 'آیا مطمئن هستید؟',
+                text: "می‌خواهید دسترسی‌ها کپی شوند؟",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'بله، انجام بده!',
+                cancelButtonText: 'لغو'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.post('@Url.Action("CopyUser", "Home")', { sourceId: sourceId, targetId: targetId, copyOnlyView: copyOnlyView }, function (response) {
+                        Swal.fire('انجام شد', response.message, 'success');
+                    }).fail(() => {
+                        Swal.fire('خطا', 'مشکلی در اتصال به سرور رخ داد.', 'error');
+                    });
+                }
+            });
+        }
+
+        function restore() {
+            if (targetId === 0) {
+                Swal.fire('خطا', 'ابتدا مقصد را انتخاب کنید.', 'error');
+                return;
+            }
+            Swal.fire({
+                title: 'بازیابی دسترسی‌ها؟',
+                text: "آیا می‌خواهید دسترسی قبلی بازگردانده شود؟",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'بله، بازیابی کن',
+                cancelButtonText: 'لغو'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.post('@Url.Action("RestoreUser", "Home")', { targetId: targetId }, function (response) {
+                        Swal.fire('انجام شد', response.message, 'success');
+                    }).fail(() => {
+                        Swal.fire('خطا', 'اتصال به سرور قطع شد.', 'error');
+                    });
+                }
+            });
+        }
+    </script>
+}

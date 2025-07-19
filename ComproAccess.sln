@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endpoint", "WinFormsApp1\Endpoint.csproj", "{0C2B9588-993B-4B36-80B5-323743385FCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Endpoint.WebApp", "Endpoint.WebApp\Endpoint.WebApp.csproj", "{14A9D7D6-C0D6-4B6C-8019-F6FDE5AAA1B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0C2B9588-993B-4B36-80B5-323743385FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C2B9588-993B-4B36-80B5-323743385FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C2B9588-993B-4B36-80B5-323743385FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14A9D7D6-C0D6-4B6C-8019-F6FDE5AAA1B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A9D7D6-C0D6-4B6C-8019-F6FDE5AAA1B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A9D7D6-C0D6-4B6C-8019-F6FDE5AAA1B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A9D7D6-C0D6-4B6C-8019-F6FDE5AAA1B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{8AC64A22-96E9-4257-B577-F306186CB55C} = {A8FAFE83-EBAA-4649-95C3-048F92E46CC4}
 		{15721A43-3268-4187-8CDF-C4D8D7C3864B} = {57FE0CA1-3E5F-462D-8E20-A31A48E5E767}
 		{0C2B9588-993B-4B36-80B5-323743385FCA} = {270787D1-D999-4B1D-B3EE-68585CCA1BFE}
+		{14A9D7D6-C0D6-4B6C-8019-F6FDE5AAA1B2} = {270787D1-D999-4B1D-B3EE-68585CCA1BFE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {408ECEDB-03F5-41CA-93EF-E2CC66D33837}
