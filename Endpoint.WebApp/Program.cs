@@ -11,9 +11,9 @@ namespace Endpoint.WebApp
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddScoped<IDatabaseContext, DatabaseContext>();
+            builder.Services.AddScoped<IAcsdataContext, AcsdataContext>();
             builder.Services.AddScoped<IUserAccessService, UserAccessService>();
-            builder.Services.AddDbContext<DatabaseContext>();
+            builder.Services.AddDbContext<AcsdataContext>();
             builder.Services.AddScoped<IGetListService, GetListService>();
             builder.Services.AddScoped<IShowName, ShowNameService>();
 

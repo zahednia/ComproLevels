@@ -7,8 +7,8 @@ namespace ApplicationCompro.Services.ShowName
     {
 
 
-        private readonly IDatabaseContext databaseContext;
-        public ShowNameService(IDatabaseContext databaseContext)
+        private readonly IAcsdataContext databaseContext;
+        public ShowNameService(IAcsdataContext databaseContext)
         {
             this.databaseContext = databaseContext;
         }

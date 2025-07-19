@@ -13,9 +13,9 @@ namespace WinFormsApp1
         static void ConfigureServices()
         {
             var services = new ServiceCollection();
-            services.AddScoped<IDatabaseContext, DatabaseContext>();
+            services.AddScoped<IAcsdataContext, AcsdataContext>();
             services.AddScoped<IUserAccessService, UserAccessService>();
-            services.AddDbContext<DatabaseContext>();
+            services.AddDbContext<AcsdataContext>();
             services.AddScoped<IGetListService, GetListService>();
             services.AddScoped<IShowName, ShowNameService>();
             ServiceProvider = services.BuildServiceProvider();

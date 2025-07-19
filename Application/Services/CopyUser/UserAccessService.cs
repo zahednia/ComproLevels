@@ -7,8 +7,8 @@ public class UserAccessService : IUserAccessService
 {
     private static Dictionary<int, List<GeneralUserAccessLevel>> TempAccessStorage = new Dictionary<int, List<GeneralUserAccessLevel>>();
 
-    private readonly IDatabaseContext _context;
-    public UserAccessService(IDatabaseContext context)
+    private readonly IAcsdataContext _context;
+    public UserAccessService(IAcsdataContext context)
     {
         _context = context;
     }
@@ -38,7 +38,7 @@ public class UserAccessService : IUserAccessService
 
         // دریافت دسترسی‌های کاربر مبدا
         var sourceAccessLevels = _context.GeneralUserAccessLevel
-            .Where(a => a.User_Id == sourceUserId)
+            .Where(a => a.UserId == sourceUserId)
             .ToList();
 
         if (!sourceAccessLevels.Any())
@@ -50,14 +50,14 @@ public class UserAccessService : IUserAccessService
             };
         }
 
-        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId).ToList();
+        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.UserId == targetUserId).ToList();
 
         if (targetAccessLevels.Any())
         {
             TempAccessStorage[targetUserId] = targetAccessLevels.Select(a => new GeneralUserAccessLevel
             {
-                User_Id = a.User_Id,
-                AccessLevel_Id = a.AccessLevel_Id,
+                UserId = a.UserId,
+                AccessLevelId = a.AccessLevelId,
                 AccessView = a.AccessView,
                 AccessNew = a.AccessNew,
                 AccessEdit = a.AccessEdit,
@@ -76,8 +76,8 @@ public class UserAccessService : IUserAccessService
         // کپی کردن دسترسی‌ها
         var newAccessLevels = sourceAccessLevels.Select(a => new GeneralUserAccessLevel
         {
-            User_Id = targetUserId,
-            AccessLevel_Id= a.AccessLevel_Id,
+            UserId = targetUserId,
+            AccessLevelId= a.AccessLevelId,
             AccessView = a.AccessView, //view only
             AccessNew = copyOnlyView ? false : a.AccessView,
             AccessEdit = copyOnlyView ? false : a.AccessEdit,
@@ -103,7 +103,7 @@ public class UserAccessService : IUserAccessService
             return new ResultDto { IsSuccess = false, Message = "هیچ دسترسی قبلی برای این کاربر ذخیره نشده است!" };
 
         // حذف دسترسی‌های فعلی کاربر مقصد
-        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.User_Id == targetUserId);
+        var targetAccessLevels = _context.GeneralUserAccessLevel.Where(a => a.UserId == targetUserId);
         _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
         _context.SaveChanges();
 

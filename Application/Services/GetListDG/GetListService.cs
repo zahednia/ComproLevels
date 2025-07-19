@@ -6,8 +6,8 @@ namespace ApplicationCompro.Services.GetListDG
     {
 
 
-        private readonly IDatabaseContext databaseContext;
-        public GetListService(IDatabaseContext databaseContext)
+        private readonly IAcsdataContext databaseContext;
+        public GetListService(IAcsdataContext databaseContext)
         {
             this.databaseContext = databaseContext;
         }

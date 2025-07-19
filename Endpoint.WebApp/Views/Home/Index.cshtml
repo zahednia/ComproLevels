@@ -98,6 +98,31 @@
 <div class="tables-container">
     <!-- مبدا -->
     <div class="table-box">
+        <h3>مقصد</h3>
+        <div class="scroll-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>نام کاربری</th>
+                        <th>پرسنلی</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MaghsadList)
+                    {
+                        <tr onclick="selectRow('maghsad', this, @item.Id)">
+                            <td>@item.Id</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Code</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="arrow">➤</div>
+    <div class="table-box">
         <h3>مبدا</h3>
         <div class="scroll-table">
             <table>
@@ -122,33 +147,10 @@
         </div>
     </div>
 
-    <div class="arrow">➤</div>
+
 
     <!-- مقصد -->
-    <div class="table-box">
-        <h3>مقصد</h3>
-        <div class="scroll-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>نام کاربری</th>
-                        <th>پرسنلی</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model.MaghsadList)
-                    {
-                        <tr onclick="selectRow('maghsad', this, @item.Id)">
-                            <td>@item.Id</td>
-                            <td>@item.UserName</td>
-                            <td>@item.Code</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
+
 </div>
 
 <div class="actions">
