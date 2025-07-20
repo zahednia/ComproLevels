@@ -1,7 +1,7 @@
-﻿using Domain.Entities;
-using Application.DataBase;
-using Application.Services.CopyUser;
+﻿using Application.DataBase;
 using Application.DTO;
+using Application.Services.CopyUser;
+using Domain.Entities;
 
 public class UserAccessService : IUserAccessService
 {
@@ -14,7 +14,7 @@ public class UserAccessService : IUserAccessService
     }
 
 
-    public ResultDto CopyUserAccess(int sourceUserId, int targetUserId , bool copyOnlyView = false)
+    public ResultDto CopyUserAccess(int sourceUserId, int targetUserId, bool copyOnlyView = false)
     {
         // بررسی وجود کاربران
         var sourceUser = _context.Users.Find(sourceUserId);
@@ -69,15 +69,15 @@ public class UserAccessService : IUserAccessService
         }
 
         // حذف دسترسی‌های قبلی کاربر مقصد
-  
-            
-            _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
+
+
+        _context.GeneralUserAccessLevel.RemoveRange(targetAccessLevels);
 
         // کپی کردن دسترسی‌ها
         var newAccessLevels = sourceAccessLevels.Select(a => new GeneralUserAccessLevel
         {
             UserId = targetUserId,
-            AccessLevelId= a.AccessLevelId,
+            AccessLevelId = a.AccessLevelId,
             AccessView = a.AccessView, //view only
             AccessNew = copyOnlyView ? false : a.AccessView,
             AccessEdit = copyOnlyView ? false : a.AccessEdit,

@@ -19,33 +19,19 @@ namespace Endpoint.WebApp
             builder.Services.AddScoped<IGetListService, GetListService>();
             builder.Services.AddScoped<IShowName, ShowNameService>();
             builder.Services.AddControllersWithViews();
-
-
             builder.Services.AddDbContext<AcsdataContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
-            }
-            if (app.Environment.IsDevelopment())
-            {
-                Console.WriteLine("DEV");
-            }
-            if (app.Environment.IsProduction())
-            {
-                Console.WriteLine("Pro");
             }
             app.UseHttpsRedirection();
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
