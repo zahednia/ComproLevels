@@ -12,15 +12,15 @@ namespace Endpoint.WebApp
     {
         public static void Main(string[] args)
         {
+            // Add services to the container.
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddScoped<IAcsdataContext, AcsdataContext>();
             builder.Services.AddScoped<IUserAccessService, UserAccessService>();
-            builder.Services.AddDbContext<AcsdataContext>();
             builder.Services.AddScoped<IGetListService, GetListService>();
             builder.Services.AddScoped<IShowName, ShowNameService>();
-
-            // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+
             builder.Services.AddDbContext<AcsdataContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -32,6 +32,14 @@ namespace Endpoint.WebApp
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+            }
+            if (app.Environment.IsDevelopment())
+            {
+                Console.WriteLine("DEV");
+            }
+            if (app.Environment.IsProduction())
+            {
+                Console.WriteLine("Pro");
             }
             app.UseHttpsRedirection();
             app.UseRouting();
