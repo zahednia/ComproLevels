@@ -28,7 +28,7 @@
 
     .table-box {
         width: 350px;
-        border: 1px solid #ccc;
+        /* border: 1px solid #ccc;*/
         border-radius: 5px;
         padding: 10px;
         background: #fff;
@@ -60,6 +60,7 @@
 
     .selected-row {
         background-color: #c2f0c2 !important;
+        pointer-events: none; /* جلوگیری از انتخاب مجدد */
     }
 
     .actions {
@@ -91,16 +92,32 @@
         font-size: 40px;
         margin-top: 150px;
     }
+
+    .selected-info {
+        font-weight: bold;
+        color: #444;
+        margin-bottom: 5px;
+    }
+
+    .search-box {
+        margin-bottom: 5px;
+        width: 100%;
+        padding: 4px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
 </style>
 
 <h1>@ViewData["Title"]</h1>
 
 <div class="tables-container">
-    <!-- مبدا -->
+    <!-- مقصد -->
     <div class="table-box">
         <h3>مقصد</h3>
-        <div class="scroll-table">
-            <table>
+        <div id="selectedMaghsad" class="selected-info"></div>
+        <input type="text" class="search-box" id="searchMaghsad" placeholder="جستجو در مقصد" />
+        <div class="scroll-table" dir="ltr">
+            <table id="tableMaghsad">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -122,10 +139,13 @@
         </div>
     </div>
     <div class="arrow">➤</div>
+    <!-- مبدا -->
     <div class="table-box">
         <h3>مبدا</h3>
-        <div class="scroll-table">
-            <table>
+        <div id="selectedMabda" class="selected-info" style="text-align:center;"></div>
+        <input type="text" class="search-box" id="searchMabda" placeholder="جستجو در مبدا" />
+        <div class="scroll-table" dir="ltr">
+            <table id="tableMabda">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -146,11 +166,6 @@
             </table>
         </div>
     </div>
-
-
-
-    <!-- مقصد -->
-
 </div>
 
 <div class="actions">
@@ -164,49 +179,81 @@
         var targetId = 0;
 
         function selectRow(type, rowElement, id) {
-            var userName = $(rowElement).find('td:eq(1)').text();   // ستون نام کاربری
-            var personalCode = $(rowElement).find('td:eq(2)').text(); // ستون پرسنلی
+            var userName = $(rowElement).find('td:eq(1)').text();
+            var personalCode = $(rowElement).find('td:eq(2)').text();
 
             if (type === 'mabda') {
                 sourceId = id;
-                $('.table-box:first tbody tr').removeClass('selected-row');
+                $('#tableMabda tr').removeClass('selected-row');
                 $(rowElement).addClass('selected-row');
-                Swal.fire('انتخاب شد',
-                    `مبدا با ID ${id} انتخاب شد.<br>نام کاربری: ${userName}<br>پرسنلی: ${personalCode}`,
-                    'info');
+                $('#selectedMabda').text(`کاربر انتخابی: ${userName} (پرسنلی: ${personalCode})`);
             } else {
                 targetId = id;
-                $('.table-box:last tbody tr').removeClass('selected-row');
+                $('#tableMaghsad tr').removeClass('selected-row');
                 $(rowElement).addClass('selected-row');
-                Swal.fire('انتخاب شد',
-                    `مقصد با ID ${id} انتخاب شد.<br>نام کاربری: ${userName}<br>پرسنلی: ${personalCode}`,
-                    'info');
+                $('#selectedMaghsad').text(`کاربر انتخابی: ${userName} (پرسنلی: ${personalCode})`);
             }
         }
 
+        function filterTable(inputId, tableId) {
+            const filter = document.getElementById(inputId).value.toUpperCase();
+            const rows = document.getElementById(tableId).getElementsByTagName("tr");
+            for (let i = 1; i < rows.length; i++) {
+                let visible = false;
+                const cells = rows[i].getElementsByTagName("td");
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].innerText.toUpperCase().includes(filter)) {
+                        visible = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = visible ? "" : "none";
+            }
+        }
+
+        $("#searchMabda").on("input", function () {
+            filterTable("searchMabda", "tableMabda");
+        });
+
+        $("#searchMaghsad").on("input", function () {
+            filterTable("searchMaghsad", "tableMaghsad");
+        });
 
         function transfer(copyOnlyView) {
             if (sourceId === 0 || targetId === 0) {
                 Swal.fire('خطا', 'ابتدا یک مبدا و یک مقصد انتخاب کنید.', 'error');
                 return;
             }
+
+            const sourceName = $('#tableMabda tr.selected-row td:eq(1)').text();
+            const targetName = $('#tableMaghsad tr.selected-row td:eq(1)').text();
+
             Swal.fire({
                 title: 'آیا مطمئن هستید؟',
-                text: "می‌خواهید دسترسی‌ها کپی شوند؟",
+                text: `آیا می‌خواهید دسترسی کاربر " ${sourceName} " به " ${targetName} " کپی شود؟`,
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonText: 'بله، انجام بده!',
                 cancelButtonText: 'لغو'
             }).then((result) => {
-                if (result.isConfirmed) {
-                    $.post('@Url.Action("CopyUser", "Home")', { sourceId: sourceId, targetId: targetId, copyOnlyView: copyOnlyView }, function (response) {
+        if (result.isConfirmed) {
+            $.post('@Url.Action("CopyUser", "Home")',
+                { sourceId: sourceId, targetId: targetId, copyOnlyView: copyOnlyView },
+                function (response) {
+                    if (response.isSuccess) {
                         Swal.fire('انجام شد', response.message, 'success');
-                    }).fail(() => {
-                        Swal.fire('خطا', 'مشکلی در اتصال به سرور رخ داد.', 'error');
-                    });
+                    } else {
+                        Swal.fire('خطا', response.message, 'error');
+                    }
                 }
+            ).fail(() => {
+                Swal.fire('خطا', 'مشکلی در اتصال به سرور رخ داد.', 'error');
             });
         }
+
+            });
+        }
+
 
         function restore() {
             if (targetId === 0) {

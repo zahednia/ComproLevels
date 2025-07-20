@@ -4,6 +4,7 @@ using ApplicationCompro.Services.GetListDG;
 using ApplicationCompro.Services.ShowName;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
+using System;
 
 namespace Endpoint.WebApp
 {
@@ -20,12 +21,11 @@ namespace Endpoint.WebApp
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<AcsdataContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
-            string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-            //  “—?ﬁ DbContext »« «” ›«œÂ «“ ò«‰ò‘‰ù«” —?‰ê
-            builder.Services.AddDbContext<AcsdataContext>(options =>
-            options.UseSqlServer(connectionString));
+
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
@@ -33,7 +33,6 @@ namespace Endpoint.WebApp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
             app.UseHttpsRedirection();
             app.UseRouting();
 

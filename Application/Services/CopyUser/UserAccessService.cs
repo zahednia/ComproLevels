@@ -32,7 +32,7 @@ public class UserAccessService : IUserAccessService
             return new ResultDto
             {
                 IsSuccess = false,
-                Message = $":) نمیتونی دسترسی افراد یکسان رو کپی کنی",
+                Message = $"نمیتونی دسترسی افراد یکسان رو کپی کنی",
             };
         }
 
@@ -93,7 +93,7 @@ public class UserAccessService : IUserAccessService
         return new ResultDto
         {
             IsSuccess = true,
-            Message = $"انتقال یافت  {targetUser.UserName}  به   {sourceUser.UserName} دسترسی",
+            Message = $"دسترسی {sourceUser.UserName}  به  {targetUser.UserName} انتقال یافت ",
         };
     }
 
